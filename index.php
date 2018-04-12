@@ -296,7 +296,7 @@ include_once("connect.php");
   </div>
 </nav>
 
-<h6>Updated as of April 12<sup>th</sup>, 2018 3:35 PM</h6>
+<p class="text-center">Updated as of April 12<sup>th</sup>, 2018 3:35 PM</h6>
 <div id="content" style="margin-top: 25px;"></div>
 
 
