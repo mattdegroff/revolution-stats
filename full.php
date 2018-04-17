@@ -3,8 +3,9 @@
   $current = "2017";
 
   $key = '';
+  $keyR = '';
 
-/*
+
   $sql = "select id, player, `code` from players";
   $result = $conn->query($sql);
   if ($result) {
@@ -18,10 +19,7 @@
         if ($result1) {
           while($row1 = $result1->fetch_assoc()){
             $pa = $row1['sum(ab)'] + $row1['sum(walk)'] + $row1['sum(sac)'];
-            echo $code." - ".$pa.", ";
           }
-        } else {
-          echo $code." - ".$pa.", ";
         }
 
         $sql = "select count(*) from results where year = ".$current;
@@ -29,12 +27,10 @@
         if ($result1) {
           while($row1 = $result1->fetch_assoc()){
             $games = $row1['count(*)'];
-            echo $games."<br>";
           }
         }
 
-
-        if ($pa/$games >= 2.3) {
+        /*if ($pa/$games >= 2.3) {
           $sql = "select max(id) from players";
       		$result1 = $conn->query($sql);
       		if ($result1->num_rows > 0) {
@@ -43,18 +39,55 @@
       			}
       		}
 
-          $key .= "select ab, runs, singles,
-          doubles, triples, hr, rbi, sac,
-          walk, k from ".$code;
-
-          if ($row['id'] < $max) {
+          if ($row['id'] != 1) {
             $key .= ' union all ';
+            $key .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$code;
+          } else {
+            $key .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$code;
           }
-        }
+        }*/
     }
   }
 
-  echo $key;
+  $sql = "select id, player, `code` from players where status = 1";
+  $result = $conn->query($sql);
+  if ($result) {
+    while($row = $result->fetch_assoc()){
+            if ($row['id'] != 1 && $row['code'] != 'genna' && $row['code']!= 'lively') {
+            $key .= ' union all ';
+            $key .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$row['code'];
+          } else if ($row['code'] != 'genna' && $row['code']!= 'lively'){
+            $key .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$row['code'];
+          }
+        }
+      }
+
+      $sql = "select id, player, `code` from players where status = 2";
+      $result = $conn->query($sql);
+      $count = 1;
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+                if ($count != 1 && $row['code'] != 'grup') {
+                $keyR .= ' union all ';
+                $keyR .= "select ab, runs, singles,
+                doubles, triples, hr, rbi, sac,
+                walk, k from ".$row['code'];
+              } else if ($row['code'] != 'grup'){
+                $keyR .= "select ab, runs, singles,
+                doubles, triples, hr, rbi, sac,
+                walk, k from ".$row['code'];
+              }
+              $count++;
+            }
+          }
 
 /*$sql = $key;
 $result = $conn->query($sql);
@@ -178,22 +211,22 @@ if ($result) {
         </tbody>
         <tfoot class="thead-light">
           <?php
-          $sql = "select sum(ab), sum(runs), sum(singles),
-          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
-          sum(walk), sum(k) from (".$key.") as u";
+          $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
+          sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
+          sum(u.walk), sum(u.k) from (".$key.") as u";
           $result = $conn->query($sql);
           if ($result) {
             while($row = $result ->fetch_assoc()){
-              $ab = $row['sum(ab)'];
-              $r = $row['sum(runs)'];
-              $sing = $row['sum(singles)'];
-              $doub = $row['sum(doubles)'];
-              $trip = $row['sum(triples)'];
-              $hr = $row['sum(hr)'];
-              $rbi = $row['sum(rbi)'];
-              $sac = $row['sum(sac)'];
-              $walk = $row['sum(walk)'];
-              $k = $row['sum(k)'];
+              $ab = $row['sum(u.ab)'];
+              $r = $row['sum(u.runs)'];
+              $sing = $row['sum(u.singles)'];
+              $doub = $row['sum(u.doubles)'];
+              $trip = $row['sum(u.triples)'];
+              $hr = $row['sum(u.hr)'];
+              $rbi = $row['sum(u.rbi)'];
+              $sac = $row['sum(u.sac)'];
+              $walk = $row['sum(u.walk)'];
+              $k = $row['sum(u.k)'];
 
               $sql = "select count(*) from results where year=".$current." and inning > 0";
               $result2 = $conn->query($sql);
@@ -343,6 +376,62 @@ if ($result) {
     }
     ?>
         </tbody>
+        <tfoot class="thead-light">
+          <?php
+          $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
+          sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
+          sum(u.walk), sum(u.k) from (".$keyR.") as u";
+          $result = $conn->query($sql);
+          if ($result) {
+            while($row = $result ->fetch_assoc()){
+              $ab = $row['sum(u.ab)'];
+              $r = $row['sum(u.runs)'];
+              $sing = $row['sum(u.singles)'];
+              $doub = $row['sum(u.doubles)'];
+              $trip = $row['sum(u.triples)'];
+              $hr = $row['sum(u.hr)'];
+              $rbi = $row['sum(u.rbi)'];
+              $sac = $row['sum(u.sac)'];
+              $walk = $row['sum(u.walk)'];
+              $k = $row['sum(u.k)'];
+
+              $sql = "select count(*) from results where year=".$current." and inning > 0";
+              $result2 = $conn->query($sql);
+              if ($result2->num_rows > 0) {
+                while($row2 = $result2 ->fetch_assoc()){
+                  $g = $row2['count(*)'];
+                }
+              }
+
+              $hits = $sing + $doub + $trip + $hr;
+              $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
+              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+
+              echo '<tr>
+                      <th>Total</th>
+                      <th></th>
+                      <th>'.$avg.'</th>
+                      <th>'.$obp.'</th>
+                      <th>'.$slg.'</th>
+                      <th>'.$ab.'</th>
+                      <th>'.$hits.'</th>
+                      <th>'.$r.'</th>
+                      <th>'.$sing.'</th>
+                      <th>'.$doub.'</th>
+                      <th>'.$trip.'</th>
+                      <th>'.$hr.'</th>
+                      <th>'.$rbi.'</th>
+                      <th>'.$sac.'</th>
+                      <th>'.$walk.'</th>
+                      <th>'.$k.'</th>
+                      <th>'.$total_B.'</th>
+                    </tr>';
+            }
+          }
+           ?>
+        </tfoot>
       </table>
     </div>
 
