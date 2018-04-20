@@ -1,5 +1,5 @@
 <?php include("connect.php");
-$current = "2017-Fall";
+$current = "2018-Summer";
 
 ?>
 
@@ -103,7 +103,7 @@ table {
     <ul class="nav flex-column nav-pills nav-fill">
       <?php
       $i=0;
-      $sql = "select distinct league from results";
+      $sql = "select distinct league from results order by league desc";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
@@ -179,10 +179,18 @@ table {
         echo "<p class='card-text'>".$win." - ".$lose."</h2></div></div></div>";
 
         echo "<div class='col-md-3'><div class='card text-center'><div class='card-body'><h5 class='card-title'>Runs For</h5>";
-        echo "<p class='card-text'>".$runFor."<br>(".round($runFor/$count, 2)." per game)</h2></div></div></div>";
+        if ($count > 0) {
+          echo "<p class='card-text'>".$runFor."<br>(".round($runFor/$count, 2)." per game)</h2></div></div></div>";
+        } else {
+          echo "<p class='card-text'>".$runFor."<br>(0 per game)</h2></div></div></div>";
+        }
 
         echo "<div class='col-md-3'><div class='card text-center'><div class='card-body'><h5 class='card-title'>Runs Against</h5>";
-        echo "<p class='card-text'>".$runAgainst."<br>(".round($runAgainst/$count, 2)." per game)</h2></div></div></div>";
+        if ($count > 0) {
+          echo "<p class='card-text'>".$runAgainst."<br>(".round($runAgainst/$count, 2)." per game)</h2></div></div></div>";
+        } else {
+          echo "<p class='card-text'>".$runAgainst."<br>(0 per game)</h2></div></div></div>";
+        }
 
         echo "<div class='col-md-3'><div class='card text-center'><div class='card-body'><h5 class='card-title'>Run Differential</h5>";
         echo "<p class='card-text'>".($runFor - $runAgainst)."</h2></div></div></div>";
