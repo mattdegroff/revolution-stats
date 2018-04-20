@@ -1,6 +1,7 @@
 
 <?php
 include_once("connect.php");
+$updateTime = "April 20<sup>th</sup>, 2018 12:13 PM";
  ?>
 
 <!doctype html>
@@ -292,11 +293,17 @@ include_once("connect.php");
             </div>
       </div>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/634654/schedule">Schedule</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/634654/standings">Standings</a>
+    </li>
     </ul>
   </div>
 </nav>
 
-<p class="text-center">Updated as of April 19<sup>th</sup>, 2018 10:16 PM</h6>
+<p class="text-center"><?php echo "Updated as of ".$updateTime; ?></h6>
 <div id="content" style="margin-top: 25px;"></div>
 
 
