@@ -1,7 +1,8 @@
 <?php
   include_once("connect.php");
-  $current = "2017";
-  $
+  $current = "2018";
+  $active = "2018-Summer";
+  $playing = true;
 
   $key = '';
   $keyR = '';
@@ -58,6 +59,18 @@
   $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
+        if ($playing) {
+          if ($row['id'] != 1 && $row['code'] != 'genna' && $row['code']!= 'lively') {
+          $key .= ' union all ';
+          $key .= "select ab, runs, singles,
+          doubles, triples, hr, rbi, sac,
+          walk, k from ".$row['code']." where league='".$active."'";
+        } else if ($row['code'] != 'genna' && $row['code']!= 'lively'){
+          $key .= "select ab, runs, singles,
+          doubles, triples, hr, rbi, sac,
+          walk, k from ".$row['code']." where league='".$active."'";
+        }
+      } else {
             if ($row['id'] != 1 && $row['code'] != 'genna' && $row['code']!= 'lively') {
             $key .= ' union all ';
             $key .= "select ab, runs, singles,
@@ -70,12 +83,26 @@
           }
         }
       }
+    }
 
       $sql = "select id, player, `code` from players where status = 2";
       $result = $conn->query($sql);
       $count = 1;
       if ($result) {
         while($row = $result->fetch_assoc()){
+          if ($playing) {
+            if ($count != 1 && $row['code'] != 'grup') {
+            $keyR .= ' union all ';
+            $keyR .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$row['code']." where league='".$active."'";
+          } else if ($row['code'] != 'grup'){
+            $keyR .= "select ab, runs, singles,
+            doubles, triples, hr, rbi, sac,
+            walk, k from ".$row['code']." where league='".$active."'";
+          }
+          $count++;
+          } else {
                 if ($count != 1 && $row['code'] != 'grup') {
                 $keyR .= ' union all ';
                 $keyR .= "select ab, runs, singles,
@@ -87,6 +114,7 @@
                 walk, k from ".$row['code'];
               }
               $count++;
+            }
             }
           }
 
@@ -134,9 +162,16 @@ if ($result) {
           while($row1 = $result1->fetch_assoc()){
                 $code = $row1['code'];
 
-        $sql = "select sum(ab), sum(runs), sum(singles),
-        sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
-        sum(walk), sum(k) from ".$code;
+        if ($playing) {
+          $sql = "select sum(ab), sum(runs), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk), sum(k) from ".$code." where league='".$active."'";
+        } else {
+          $sql = "select sum(ab), sum(runs), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk), sum(k) from ".$code;
+        }
+
         $result = $conn->query($sql);
         if ($result) {
           while($row = $result ->fetch_assoc()){
@@ -151,7 +186,11 @@ if ($result) {
             $walk = $row['sum(walk)'];
             $k = $row['sum(k)'];
 
-            $sql = "select count(*) from ".$code;
+            if ($playing) {
+              $sql = "select count(*) from ".$code." where league='".$active."'";
+            } else {
+              $sql = "select count(*) from ".$code;
+            }
             $result2 = $conn->query($sql);
             if ($result2->num_rows > 0) {
               while($row2 = $result2 ->fetch_assoc()){
@@ -161,10 +200,40 @@ if ($result) {
 
             $hits = $sing + $doub + $trip + $hr;
             $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
-            $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
-            $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
-            $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            if ($ab == 0) {
+              $avg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            }
+            if ($ab == 0 && $walk ==0 && $sac == 0) {
+              $obp = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+            }
 
+            if ($ab == 0 && $walk == 0 && $sac == 0) {
+              echo '<tr>
+                      <td>'.$row1['player'].'</td>
+                      <td>'.$g.'</td>
+                      <td>'.$avg.'</td>
+                      <td>'.$obp.'</td>
+                      <td>'.$slg.'</td>
+                      <td>0</td>
+                      <td>'.$hits.'</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>';
+            } else {
             echo '<tr>
                     <td>'.$row1['player'].'</td>
                     <td>'.$g.'</td>
@@ -184,6 +253,7 @@ if ($result) {
                     <td>'.$k.'</td>
                     <td>'.$total_B.'</td>
                   </tr>';
+                }
           }
         } else {
           echo '<tr>
@@ -215,6 +285,14 @@ if ($result) {
           $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
           sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
           sum(u.walk), sum(u.k) from (".$key.") as u";
+
+          if ($playing) {
+
+          } else {
+            $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
+            sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
+            sum(u.walk), sum(u.k) from (".$key.") as u";
+          }
           $result = $conn->query($sql);
           if ($result) {
             while($row = $result ->fetch_assoc()){
@@ -239,10 +317,40 @@ if ($result) {
 
               $hits = $sing + $doub + $trip + $hr;
               $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
-              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
-              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
-              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+              if ($ab == 0) {
+                $avg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+                $slg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              } else {
+                $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+                $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+              }
+              if ($ab == 0 && $walk ==0 && $sac == 0) {
+                $obp = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              } else {
+                $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+              }
 
+              if ($ab == 0 && $walk == 0 && $sac == 0) {
+                echo '<tr>
+                        <th>Total</th>
+                        <th>'.$g.'</th>
+                        <th>'.$avg.'</th>
+                        <th>'.$obp.'</th>
+                        <th>'.$slg.'</th>
+                        <th>0</th>
+                        <th>'.$hits.'</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                      </tr>';
+              } else {
               echo '<tr>
                       <th>Total</th>
                       <th>'.$g.'</th>
@@ -262,6 +370,7 @@ if ($result) {
                       <th>'.$k.'</th>
                       <th>'.$total_B.'</th>
                     </tr>';
+                  }
             }
           }
            ?>
@@ -301,9 +410,16 @@ if ($result) {
           while($row1 = $result1->fetch_assoc()){
                 $code = $row1['code'];
 
-        $sql = "select sum(ab), sum(runs), sum(singles),
-        sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
-        sum(walk), sum(k) from ".$code;
+        if ($playing) {
+          $sql = "select sum(ab), sum(runs), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk), sum(k) from ".$code." where league='".$active."'";
+        } else {
+          $sql = "select sum(ab), sum(runs), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk), sum(k) from ".$code;
+        }
+
         $result = $conn->query($sql);
         if ($result) {
           while($row = $result ->fetch_assoc()){
@@ -318,7 +434,11 @@ if ($result) {
             $walk = $row['sum(walk)'];
             $k = $row['sum(k)'];
 
-            $sql = "select count(*) from ".$code;
+            if ($playing) {
+              $sql = "select count(*) from ".$code." where league='".$active."'";
+            } else {
+              $sql = "select count(*) from ".$code;
+            }
             $result2 = $conn->query($sql);
             if ($result2->num_rows > 0) {
               while($row2 = $result2 ->fetch_assoc()){
@@ -328,10 +448,40 @@ if ($result) {
 
             $hits = $sing + $doub + $trip + $hr;
             $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
-            $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
-            $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
-            $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            if ($ab == 0) {
+              $avg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            }
+            if ($ab == 0 && $walk ==0 && $sac == 0) {
+              $obp = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+            }
 
+            if ($ab == 0 && $walk == 0 && $sac == 0) {
+              echo '<tr>
+                      <td>'.$row1['player'].'</td>
+                      <td>'.$g.'</td>
+                      <td>'.$avg.'</td>
+                      <td>'.$obp.'</td>
+                      <td>'.$slg.'</td>
+                      <td>0</td>
+                      <td>'.$hits.'</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>';
+            } else {
             echo '<tr>
                     <td>'.$row1['player'].'</td>
                     <td>'.$g.'</td>
@@ -351,6 +501,7 @@ if ($result) {
                     <td>'.$k.'</td>
                     <td>'.$total_B.'</td>
                   </tr>';
+                }
           }
         } else {
           echo '<tr>
@@ -381,7 +532,15 @@ if ($result) {
           <?php
           $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
           sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
-          sum(u.walk), sum(u.k) from (".$keyR.") as u";
+          sum(u.walk), sum(u.k) from (".$key.") as u";
+
+          if ($playing) {
+
+          } else {
+            $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
+            sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
+            sum(u.walk), sum(u.k) from (".$key.") as u";
+          }
           $result = $conn->query($sql);
           if ($result) {
             while($row = $result ->fetch_assoc()){
@@ -406,10 +565,40 @@ if ($result) {
 
               $hits = $sing + $doub + $trip + $hr;
               $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
-              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
-              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
-              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+              if ($ab == 0) {
+                $avg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+                $slg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              } else {
+                $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+                $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+              }
+              if ($ab == 0 && $walk ==0 && $sac == 0) {
+                $obp = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              } else {
+                $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+              }
 
+              if ($ab == 0 && $walk == 0 && $sac == 0) {
+                echo '<tr>
+                        <th>Total</th>
+                        <th></th>
+                        <th>'.$avg.'</th>
+                        <th>'.$obp.'</th>
+                        <th>'.$slg.'</th>
+                        <th>0</th>
+                        <th>'.$hits.'</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                      </tr>';
+              } else {
               echo '<tr>
                       <th>Total</th>
                       <th></th>
@@ -429,6 +618,7 @@ if ($result) {
                       <th>'.$k.'</th>
                       <th>'.$total_B.'</th>
                     </tr>';
+                  }
             }
           }
            ?>
