@@ -1,6 +1,6 @@
 <?php
   include_once('connect.php');
-  $display = true;
+  $display = false;
 
 
  ?>
