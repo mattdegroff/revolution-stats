@@ -209,7 +209,7 @@ table {
 
             $date=date_format(date_create($row['date']),"n/j/Y H:i A");
 
-            if ($row['inning'] != 7 && $row['inning'] != 0) {
+            if ($row['inning'] != 7 && $row['inning'] > 0) {
               echo "<tr><td>".$date."</td><td>".$row['opponent']."</td><td>".$row['score']."</td><td>".$row['oppScore']."</td><td>".$record." (".$row['inning']." innings)</td><td>".$row['location']."</td></tr>";
             } else if ($row['inning'] == -1) {
               echo "<tr><td>".$date."</td><td>".$row['opponent']."</td><td></td><td></td><td></td><td>".$row['location']."</td></tr>";
