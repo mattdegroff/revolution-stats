@@ -91,7 +91,7 @@ include_once("connect.php");
 
         home();
     </script>
-    <title>Stats</title>
+    <title>LI Revolution</title>
   </head>
   <body>
     <style>

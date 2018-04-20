@@ -1,6 +1,6 @@
 <?php
   include_once('connect.php');
-  $display = false;
+  $display = true;
 
 
  ?>
@@ -18,7 +18,7 @@
         <tbody>
           <?php
           if ($display) {
-            $sql = "select id, name, pos from lineup";
+            $sql = "select id, name, pos from lineup order by id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()){

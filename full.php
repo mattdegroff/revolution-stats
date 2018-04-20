@@ -1,6 +1,7 @@
 <?php
   include_once("connect.php");
   $current = "2017";
+  $
 
   $key = '';
   $keyR = '';
@@ -100,7 +101,7 @@ if ($result) {
   }
 }*/
 ?>
-<div class='container'>
+<div class='container text-center'>
     <h3>Active</h3>
     <div class="table-responsive-xl">
       <table class="table text-center table-sm table-bordered">
