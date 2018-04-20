@@ -207,7 +207,7 @@ table {
               $record = 'Win';
             }
 
-            $date=date_format(date_create($row['date']),"n/j/Y h:i A");
+            $date=date_format(date_create($row['date']),"n/j/Y g:i A");
 
             if ($row['inning'] != 7 && $row['inning'] > 0) {
               echo "<tr><td>".$date."</td><td>".$row['opponent']."</td><td>".$row['score']."</td><td>".$row['oppScore']."</td><td>".$record." (".$row['inning']." innings)</td><td>".$row['location']."</td></tr>";
