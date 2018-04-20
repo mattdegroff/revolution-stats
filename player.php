@@ -1,7 +1,8 @@
 <?php
   include_once('connect.php');
 
-  $current = "2017-Fall";
+  $current = "2018-Summer";
+  $playing = true;
 
   if ($_GET["player"]) {
     $player = $_GET["player"];
@@ -48,16 +49,27 @@ table {
       <h1 class="display-2" style="font-size: 3em;"><?php echo $player; ?></h1>
     </div>
     <div class="col-md-6">
-      <h6>Career</h6>
+      <?php if ($playing) {
+        echo "<h6>Current Season</h6>";
+      } else {
+        echo "<h6>Career</h6>";
+      }
+      ?>
       <table class="table  table-sm table-bordered text-center">
       <thead class="thead-light">
        <tr><th>AVG.</th><th>OBP.</th><th>SLG.</th><th>HR</th><th>RBI</th></tr>
      </thead>
      <tbody>
         <?php
-        $sql = "select sum(ab), sum(singles),
-        sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
-        sum(walk) from ".$code;
+        if ($playing) {
+          $sql = "select sum(ab), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk) from ".$code." where league = '".$current."'";
+        } else {
+          $sql = "select sum(ab), sum(singles),
+          sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
+          sum(walk) from ".$code;
+        }
         $result = $conn->query($sql);
         if (!$result) {
           echo "<tr><td>.000</td><td>.000</td><td>.000</td><td>0</td><td>0</td></tr>";
@@ -74,11 +86,24 @@ table {
 
             $hits = $sing + $doub + $trip + $hr;
             $total_B = $sing + $doub*2 + $trip*3 + $hr*4;
-            $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
-            $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
-            $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            if ($ab == 0) {
+              $avg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $avg = ltrim(strval(number_format($hits / $ab, 3, '.', '')), "0");
+              $slg = ltrim(strval(number_format($total_B / $ab, 3, '.', '')), "0");
+            }
+            if ($ab == 0 && $walk ==0 && $sac == 0) {
+              $obp = ltrim(strval(number_format(0, 3, '.', '')), "0");
+            } else {
+              $obp = ltrim(strval(number_format(($hits + $walk) / ($ab + $walk + $sac), 3, '.', '')), "0");
+            }
 
-            echo "<tr><td>".$avg."</td><td>".$obp."</td><td>".$slg."</td><td>".$hr."</td><td>".$rbi."</td></tr>";
+            if ($ab == 0 && $walk ==0 && $sac == 0) {
+              echo "<tr><td>".$avg."</td><td>".$obp."</td><td>".$slg."</td><td>0</td><td>0</td></tr>";
+            } else {
+              echo "<tr><td>".$avg."</td><td>".$obp."</td><td>".$slg."</td><td>".$hr."</td><td>".$rbi."</td></tr>";
+            }
           }
           }
          ?>
@@ -340,7 +365,7 @@ table {
       <?php
       $i=0;
       $found = false;
-      $sql = "select distinct league from ".$code;
+      $sql = "select distinct league from ".$code." order by league desc";
       $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -350,8 +375,10 @@ table {
         } else {
           if ($found == false && $i == 0) {
           echo '<li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#'.$code.'-'.$row['league'].'">'.str_replace('-', ' ', $row['league']).'</a></li>';
+          $i++;
           } else {
           echo '<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#'.$code.'-'.$row['league'].'">'.str_replace('-', ' ', $row['league']).'</a></li>';
+          $i++;
           }
         }
       }
@@ -363,7 +390,7 @@ table {
     <?php
     $i=0;
     $found = false;
-    $sql = "select distinct league from ".$code;
+    $sql = "select distinct league from ".$code." order by league desc";
     $result1 = $conn->query($sql);
     if ($result) {
       while($row1 = $result1->fetch_assoc()) {
@@ -373,8 +400,10 @@ table {
         } else {
           if ($found == false && $i == 0) {
           echo '<div class="tab-pane active container" id="'.$code.'-'.$row1['league'].'">';
+          $i++;
           } else {
           echo '<div class="tab-pane container" id="'.$code.'-'.$row1['league'].'">';
+          $i++;
           }
         }
           echo '<div class="table-responsive-xl">
@@ -473,16 +502,21 @@ table {
                           <td>'.$k.'</td>
                           <td>'.$total_B.'</td>';
 
-                          if ($era == -1) {
-                            echo "<td>&infin;</td>";
-                          } else {
-                            echo '<td>'.$era.'</td>';
-                          }
+                    if ($ip == 0 && $rP == 0) {
+                      echo "<td colspan='4'>DNP</td>";
+                    } else {
+                      if ($era == -1) {
+                        echo "<td>&infin;</td>";
+                      } else {
+                        echo '<td>'.$era.'</td>';
+                      }
 
-                    echo '<td>'.$ip.'</td>
-                          <td>'.$rP.'</td>
-                          <td>'.$kP.'</td>
-                        </tr>';
+                echo '<td>'.$ip.'</td>
+                      <td>'.$rP.'</td>
+                      <td>'.$kP.'</td>
+                    </tr>';
+                    }
+
                 }
               }
 
