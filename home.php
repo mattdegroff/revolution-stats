@@ -46,6 +46,7 @@
           </tr>
         </tbody>
       </table>
+      <h2>Postponed Games</h2>
       <div class="row">
         <div class="col-sm-3">
       <table border=0>
