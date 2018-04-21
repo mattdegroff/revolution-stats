@@ -1,6 +1,6 @@
 <?php
   include_once('connect.php');
-  $display = true;
+  $display = false;
 
 
  ?>
@@ -40,17 +40,16 @@
         </thead>
         <tbody>
           <tr>
-            <td>April 20<sup>th</sup>, 2018 8:30pm</td>
-            <td>St. John's</td>
-            <td>Wantagh Park Field C</td>
-          </tr>
-          <tr>
             <td>April 27<sup>th</sup>, 2018 8:30pm</td>
             <td>The Franchise</td>
             <td>Jones Beach West</td>
           </tr>
         </tbody>
       </table>
+      <p> Game 2 agaisnt St. John's postponed due to lights. Game 2 will restart from the top of the 4th next time we are scheduled to play each other.<br>
+          Revolution  11
+          St. Johns   14
+        </p>
       <!--<h2>2017 Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">

@@ -1,7 +1,7 @@
 
 <?php
 include_once("connect.php");
-$updateTime = "April 20<sup>th</sup>, 2018 12:13 PM";
+$updateTime = "April 21<sup>th</sup>, 2018 12:13 PM";
  ?>
 
 <!doctype html>
