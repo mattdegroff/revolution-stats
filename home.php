@@ -10,7 +10,7 @@
   <hr>
   <div class="row text-center">
     <div class="col-sm-4">
-      <h2>Lineup for<br>April 20<sup>th</sup></h2>
+      <h2>Lineup for<br>April 27<sup>th</sup></h2>
       <table class="table table-sm table-striped table-bordered text-center">
         <thead>
           <tr><th>#</th><th>Name</th><th>Position</th></tr>
@@ -46,10 +46,18 @@
           </tr>
         </tbody>
       </table>
-      <p> Game 2 agaisnt St. John's postponed due to lights. Game 2 will restart from the top of the 4th next time we are scheduled to play each other.<br>
-          Revolution  11
-          St. Johns   14
-        </p>
+      <div class="row">
+        <div class="col-sm-3">
+      <table border=0>
+        <tr><th>Revolution</th><th>11</th></tr>
+        <tr><th>St. John's</th><th>14</th></tr>
+        <tr><td>Top 4</td><td>0 Outs</td></tr>
+      </table>
+    </div>
+      <div class="col-sm-9">
+        <p>Game to be continued before next DH against St. John's</p>
+      </div>
+    </div>
       <!--<h2>2017 Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">

@@ -60,23 +60,23 @@
   if ($result) {
     while($row = $result->fetch_assoc()){
         if ($playing) {
-          if ($row['id'] != 1 && $row['code'] != 'genna' && $row['code']!= 'lively') {
+          if ($row['id'] != 1 && $row['code']!= 'lively') {
           $key .= ' union all ';
           $key .= "select ab, runs, singles,
           doubles, triples, hr, rbi, sac,
           walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
-        } else if ($row['code'] != 'genna' && $row['code']!= 'lively'){
+        } else if ($row['code']!= 'lively'){
           $key .= "select ab, runs, singles,
           doubles, triples, hr, rbi, sac,
           walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
         }
       } else {
-            if ($row['id'] != 1 && $row['code'] != 'genna' && $row['code']!= 'lively') {
+            if ($row['id'] != 1 && $row['code']!= 'lively') {
             $key .= ' union all ';
             $key .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code'];
-          } else if ($row['code'] != 'genna' && $row['code']!= 'lively'){
+          } else if ($row['code']!= 'lively'){
             $key .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code'];
@@ -91,24 +91,24 @@
       if ($result) {
         while($row = $result->fetch_assoc()){
           if ($playing) {
-            if ($count != 1 && $row['code'] != 'grup') {
+            if ($count != 1) {
             $keyR .= ' union all ';
             $keyR .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
-          } else if ($row['code'] != 'grup'){
+          } else {
             $keyR .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
           }
           $count++;
           } else {
-                if ($count != 1 && $row['code'] != 'grup') {
+                if ($count != 1) {
                 $keyR .= ' union all ';
                 $keyR .= "select ab, runs, singles,
                 doubles, triples, hr, rbi, sac,
                 walk, k, ip, r, kP from ".$row['code'];
-              } else if ($row['code'] != 'grup'){
+              } else {
                 $keyR .= "select ab, runs, singles,
                 doubles, triples, hr, rbi, sac,
                 walk, k, ip, r, kP from ".$row['code'];
@@ -432,21 +432,17 @@ if ($result) {
                       <th>'.$k.'</th>
                       <th>'.$total_B.'</th>';
 
-
-                      if ($ip == 0 && $rP == 0) {
-                        echo "<td colspan='4'>DNP</td>";
-                      } else {
                         if ($era == -1) {
-                          echo "<td>&infin;</td>";
+                          echo "<th>&infin;</th>";
                         } else {
-                          echo '<td>'.$era.'</td>';
+                          echo '<th>'.$era.'</th>';
                         }
 
-                        echo '<td>'.$ip.'</td>
-                              <td>'.$rP.'</td>
-                              <td>'.$kP.'</td>
+                        echo '<th>'.$ip.'</th>
+                              <th>'.$rP.'</th>
+                              <th>'.$kP.'</th>
                             </tr>';
-                      }
+
                   }
             }
           }
@@ -657,7 +653,7 @@ if ($result) {
           <?php
           $sql = "select sum(u.ab), sum(u.runs), sum(u.singles),
           sum(u.doubles), sum(u.triples), sum(u.hr), sum(u.rbi), sum(u.sac),
-          sum(u.walk), sum(u.k), sum(u.ip), sum(u.r), sum(u.kP) from (".$key.") as u";
+          sum(u.walk), sum(u.k), sum(u.ip), sum(u.r), sum(u.kP) from (".$keyR.") as u";
 
           $result = $conn->query($sql);
           if ($result) {
@@ -757,21 +753,16 @@ if ($result) {
                       <th>'.$k.'</th>
                       <th>'.$total_B.'</th>';
 
-
-                      if ($ip == 0 && $rP == 0) {
-                        echo "<td colspan='4'>DNP</td>";
+                      if ($era == -1) {
+                        echo "<th>&infin;</th>";
                       } else {
-                        if ($era == -1) {
-                          echo "<td>&infin;</td>";
-                        } else {
-                          echo '<td>'.$era.'</td>';
-                        }
-
-                        echo '<td>'.$ip.'</td>
-                              <td>'.$rP.'</td>
-                              <td>'.$kP.'</td>
-                            </tr>';
+                        echo '<th>'.$era.'</th>';
                       }
+
+                      echo '<th>'.$ip.'</th>
+                            <th>'.$rP.'</th>
+                            <th>'.$kP.'</th>
+                          </tr>';
                   }
             }
           }
