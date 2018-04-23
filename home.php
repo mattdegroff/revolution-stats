@@ -51,7 +51,7 @@
         <div class="col-sm-3">
       <table border=0>
         <tr><th>Revolution</th><th>11</th></tr>
-        <tr><th>St. John's</th><th>14</th></tr>
+        <tr><th>St. John's</th><th>13</th></tr>
         <tr><td>Top 4</td><td>0 Outs</td></tr>
       </table>
     </div>
