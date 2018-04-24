@@ -49,16 +49,16 @@
       <h2>Postponed Games</h2>
       <div class="row">
         <div class="col-sm-3">
-      <table border=0>
-        <tr><th>Revolution</th><th>11</th></tr>
-        <tr><th>St. John's</th><th>13</th></tr>
-        <tr><td>Top 4</td><td>0 Outs</td></tr>
-      </table>
-    </div>
-      <div class="col-sm-9">
-        <p>Game to be continued before next DH against St. John's</p>
+          <table border=0>
+            <tr><th>Revolution</th><th>11</th></tr>
+            <tr><th>St. John's</th><th>13</th></tr>
+            <tr><td>Top 4</td><td>0 Outs</td></tr>
+          </table>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
+      </div>
       <!--<h2>2017 Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">
