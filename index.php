@@ -1,7 +1,6 @@
 
 <?php
 include_once("connect.php");
-$updateTime = "April 21<sup>th</sup>, 2018 2:21 PM";
  ?>
 
 <!doctype html>
@@ -303,7 +302,6 @@ $updateTime = "April 21<sup>th</sup>, 2018 2:21 PM";
   </div>
 </nav>
 
-<p class="text-center"><?php echo "Updated as of ".$updateTime; ?></h6>
 <div id="content" style="margin-top: 25px;"></div>
 
 

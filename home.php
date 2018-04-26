@@ -1,6 +1,6 @@
 <?php
   include_once('connect.php');
-  $display = false;
+  $display = true;
 
 
  ?>
@@ -56,8 +56,11 @@
           </table>
         </div>
       </div>
+      <hr>
       <div class="row">
-        <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
+        <div class="col-sm">
+          <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
+        </div>
       </div>
       <!--<h2>2017 Team Leaders</h2>
       <div class="row">
