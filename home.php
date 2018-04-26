@@ -44,7 +44,7 @@
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
-              $date = date_format(date_create($row['date']),"n/j/Y g:i A");
+              $date = date_format(date_create($row['date']),"F jS, Y g:i A");
 
               echo "<tr><td>".$date."</td><td>".$row['opp']."</td><td>".$row['location']."</td></tr>";
             }
