@@ -39,11 +39,15 @@
           <tr><th>Date & Time</th><th>Opponent</th><th>Location</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>April 27<sup>th</sup>, 2018 8:30pm</td>
-            <td>The Franchise</td>
-            <td>Jones Beach West</td>
-          </tr>
+          <?php
+          $sql = "select  `date`, opp, location from upcoming order by `date`";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+              echo "<tr><td>".$row['`date`']."</td><td>".$row['opp']."</td><td>".$row['location']."</td></tr>";
+            }
+          }
+          ?>
         </tbody>
       </table>
       <h2>Postponed Games</h2>
