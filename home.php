@@ -40,7 +40,7 @@
         </thead>
         <tbody>
           <?php
-          $sql = "select `date`, opp, location from upcoming order by `date`";
+          $sql = "select date, opp, location from upcoming order by `date`";
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
