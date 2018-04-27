@@ -1,6 +1,17 @@
 <?php
   include_once('connect.php');
-  $display = true;
+  $sql = "select display from lineupDisp";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()){
+      if ($row['display'] == 0) {
+        $display = false;
+      } else {
+        $display = true;
+      }
+    }
+  }
+
 
 
  ?>
