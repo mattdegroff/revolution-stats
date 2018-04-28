@@ -26,11 +26,11 @@
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
-          $date=date_format(date_create($row['date']),"n/jS");
+          $date=date_format(date_create($row['date']),"F jS");
         }
       }
       ?>
-      <h2>Lineup for<br><?php echo $date; ?></h2>
+      <h2>Tentative Lineup for<br><?php echo $date; ?></h2>
       <table class="table table-sm table-striped table-bordered text-center">
         <thead>
           <tr><th>#</th><th>Name</th><th>Position</th></tr>
