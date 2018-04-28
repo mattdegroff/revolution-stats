@@ -21,7 +21,16 @@
   <hr>
   <div class="row text-center">
     <div class="col-sm-4">
-      <h2>Lineup for<br>April 27<sup>th</sup></h2>
+      <?php
+      $sql = "select date from upcoming limit 1 order by date";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()){
+          $date=date_format(date_create($row['date']),"n/jS");
+        }
+      }
+      ?>
+      <h2>Lineup for<br><?php echo $date; ?><sup>th</sup></h2>
       <table class="table table-sm table-striped table-bordered text-center">
         <thead>
           <tr><th>#</th><th>Name</th><th>Position</th></tr>
