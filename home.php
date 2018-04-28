@@ -30,7 +30,7 @@
         }
       }
       ?>
-      <h2>Tentative Lineup for<br><?php echo $date; ?></h2>
+      <h2>Tentative Lineup <br>for <?php echo $date; ?></h2>
       <table class="table table-sm table-striped table-bordered text-center">
         <thead>
           <tr><th>#</th><th>Name</th><th>Position</th></tr>
