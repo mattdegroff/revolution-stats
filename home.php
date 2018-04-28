@@ -22,7 +22,7 @@
   <div class="row text-center">
     <div class="col-sm-4">
       <?php
-      $sql = "select date from upcoming limit 1 order by date";
+      $sql = "select date from upcoming order by date limit 1";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
@@ -30,7 +30,7 @@
         }
       }
       ?>
-      <h2>Lineup for<br><?php echo $date; ?><sup>th</sup></h2>
+      <h2>Lineup for<br><?php echo $date; ?></h2>
       <table class="table table-sm table-striped table-bordered text-center">
         <thead>
           <tr><th>#</th><th>Name</th><th>Position</th></tr>
