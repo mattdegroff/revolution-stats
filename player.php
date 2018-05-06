@@ -521,7 +521,7 @@ table {
               }
 
               echo '</tbody>
-              <tfoot>';
+              <tfoot class="thead-light">';
 
               $sql = "select sum(ab), sum(runs), sum(singles),
               sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac),
