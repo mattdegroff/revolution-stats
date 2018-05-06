@@ -559,7 +559,10 @@ table {
 
                   $era = number_format($era, 2, '.', '');
                   $intIP = floor($row['sum(ip)']);
-                  $decIP = $row['sum(ip)'] - $intIP;
+                  $decIP = (($row['sum(ip)'] - $intIP/.33)*.1);
+                  if ($decIP == .3) {
+                    $decIP = 1;
+                  }
                   $ip = number_format(round(($intIP + ($decIP/.33)*.1),1), 1, '.', '');
                   $rP = $row['sum(r)'];
                   $kP = $row['sum(kP)'];
