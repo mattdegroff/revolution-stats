@@ -559,7 +559,7 @@ table {
 
                   $era = number_format($era, 2, '.', '');
                   $intIP = floor($row['sum(ip)']);
-                  $decIP = (($row['sum(ip)'] - $intIP/.33)*.1);
+                  $decIP = ((($row['sum(ip)'] - $intIP)/.33)*.1);
                   if ($decIP == .3) {
                     $decIP = 1;
                   }
