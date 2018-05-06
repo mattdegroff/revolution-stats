@@ -563,7 +563,7 @@ table {
                   if ($decIP == .3) {
                     $decIP = 1;
                   }
-                  $ip = number_format(round(($intIP + ($decIP/.33)*.1),1), 1, '.', '');
+                  $ip = number_format(round($intIP + $decIP,1), 1, '.', '');
                   $rP = $row['sum(r)'];
                   $kP = $row['sum(kP)'];
 
