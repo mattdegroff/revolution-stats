@@ -441,7 +441,7 @@ table {
               <tbody>';
 
               $sql = "select `date`, opponent, ab, runs, singles, doubles,
-              triples, hr, rbi, sac, walk, k, ip, r, kP from ".$code." where league='". $row1['league']."'";
+              triples, hr, rbi, sac, walk, k, ip, r, kP from ".$code." where league='". $row1['league']."' order by date";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()){
