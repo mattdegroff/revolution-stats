@@ -60,23 +60,23 @@
   if ($result) {
     while($row = $result->fetch_assoc()){
         if ($playing) {
-          if ($row['id'] != 1 && $row['code']!= 'lively') {
+          if ($row['id'] != 1) {
           $key .= ' union all ';
           $key .= "select ab, runs, singles,
           doubles, triples, hr, rbi, sac,
           walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
-        } else if ($row['code']!= 'lively'){
+        } else {
           $key .= "select ab, runs, singles,
           doubles, triples, hr, rbi, sac,
           walk, k, ip, r, kP from ".$row['code']." where league='".$active."'";
         }
       } else {
-            if ($row['id'] != 1 && $row['code']!= 'lively') {
+            if ($row['id'] != 1) {
             $key .= ' union all ';
             $key .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code'];
-          } else if ($row['code']!= 'lively'){
+          } else {
             $key .= "select ab, runs, singles,
             doubles, triples, hr, rbi, sac,
             walk, k, ip, r, kP from ".$row['code'];
