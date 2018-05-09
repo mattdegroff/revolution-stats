@@ -37,12 +37,16 @@
         </thead>
         <tbody>
           <?php
+          $num = 1;
           if ($display) {
-            $sql = "select id, name, pos from lineup order by id";
+            $sql = "select name, pos, display from lineup order by id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()){
-                echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td><td>".$row['pos']."</td></tr>";
+                if ($row['display'] == 1) {
+                  echo "<tr><td>".$num."</td><td>".$row['name']."</td><td>".$row['pos']."</td></tr>";
+                  $num++;
+                }
               }
             }
           } else {
