@@ -361,7 +361,7 @@ table {
   <div class="container text-center">
     <h2>Game-by-Game Results</h2>
     <div class="row">
-      <div class="col">
+      <div class="col-md-2">
     <ul class="nav flex-column nav-pills nav-justified" style="margin-bottom: 10px;">
       <?php
       $i=0;
@@ -387,7 +387,7 @@ table {
        ?>
     </ul>
   </div>
-  <div class="col">
+  <div class="col-md-10">
     <div class="tab-content">
     <?php
     $i=0;
