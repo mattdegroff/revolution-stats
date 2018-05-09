@@ -361,7 +361,7 @@ table {
   <div class="container text-center">
     <h2>Game-by-Game Results</h2>
     <div class="row">
-    <ul class="nav flex-column nav-pills" style="margin-bottom: 10px;">
+    <ul class="nav flex-column nav-pills nav-fill" style="margin-bottom: 10px;">
       <?php
       $i=0;
       $found = false;
