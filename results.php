@@ -100,7 +100,7 @@ table {
   <h3 class="text-center">Season by Season</h3><br>
   <div class="row text-center">
     <div class="col-md-2">
-    <ul class="nav flex-column nav-pills nav-fill">
+    <ul class="nav flex-column nav-pills nav-justified">
       <?php
       $i=0;
       $sql = "select distinct league from results order by league desc";
