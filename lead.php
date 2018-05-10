@@ -31,13 +31,13 @@ if ($result) {
       }
 
       if ($pa/$games >= 2.3) {
-        $qual[] = $code;
+        $qual[] = array($code, $name);
       }
   }
 }
 
 for ($i = 0; $i < sizeof($qual); $i++) {
-  $sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]." where year = ".$current;
+  $sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i][0]." where year = ".$current;
   $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()) {
