@@ -51,7 +51,7 @@ for ($i = 0; $i < sizeof($qual); $i++) {
 rsort($qualSort);
 
 for ($i = 0; $i < sizeof($qualSort); $i++) {
-  echo $qualSort[$i];
+  echo $qualSort[$i]."<br>";
 }
 
 ?>
