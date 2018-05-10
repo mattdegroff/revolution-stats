@@ -34,4 +34,8 @@ if ($result) {
       }
   }
 }
+
+for ($i = 0; $i < sizeof($qual); $i++) {
+  echo $qual[$i]."<br>";
+}
 ?>
