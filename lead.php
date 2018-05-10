@@ -30,7 +30,7 @@ if ($result) {
       }
 
       if ($pa/$games >= 2.3) {
-        $qualify[] = $code;
+        array_push($qualify, $code);
       }
   }
 }
