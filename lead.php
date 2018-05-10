@@ -37,20 +37,18 @@ if ($result) {
 }
 
 for ($i = 0; $i < sizeof($qual); $i++) {
-
-$sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]." where year = ".$current;
-$result = $conn->query($sql);
-if ($result) {
-  while($row = $result->fetch_assoc()){
-    $avg = $row['(sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab)'];
+  $sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]." where year = ".$current;
+  $result = $conn->query($sql);
+  if ($result) {
+    while($row = $result->fetch_assoc()) {
+      $avg = $row['(sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab)'];
+    }
   }
+
+  $qualSort[] = $avg;
 }
 
-$qualSort[] = $avg;
-
-}
-
-arsort($qualSort);
+rsort($qualSort);
 
 for ($i = 0; $i < sizeof($qualSort); $i++) {
   echo $qualSort[$i];
