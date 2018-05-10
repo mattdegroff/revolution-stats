@@ -1,8 +1,6 @@
 <?php
 include_once("connect.php");
-$current = "2017";
-
-$key = '';
+$current = "2018";
 
 $sql = "select id, player, `code` from players";
 $result = $conn->query($sql);
@@ -20,7 +18,7 @@ if ($result) {
         }
       }
 
-      $sql = "select count(*) from results where year = ".$current;
+      $sql = "select count(*) from results where year = ".$current." and inning > 0";
       $result1 = $conn->query($sql);
       if ($result1) {
         while($row1 = $result1->fetch_assoc()){
@@ -29,38 +27,17 @@ if ($result) {
         }
       }
 
-      if ($pa/$games >= 2.3) {
-        $sql = "select max(id) from players";
-        $result1 = $conn->query($sql);
-        if ($result1->num_rows > 0) {
-          while($row1 = $result1->fetch_assoc()){
-            $max = $row1['max(id)'];
-          }
-        }
+      $qualify = [];
 
-        if ($row['id'] != 1) {
-          $key .= ' union all ';
-          $key .= "select ab, runs, singles,
-          doubles, triples, hr, rbi, sac,
-          walk, k from ".$code;
-        } else {
-          $key .= "select ab, runs, singles,
-          doubles, triples, hr, rbi, sac,
-          walk, k from ".$code;
-        }
+      if ($pa/$games >= 2.3) {
+        $qualify[] = $code;
       }
   }
 }
 
-echo $key;
-
-
-
-function avg($key) {
-  $sql = "select id, player, `code` from players";
-  $result = $conn->query($sql);
-  if ($result) {
-    while($row = $result->fetch_assoc()){
+if ($i = 0; $i < sizeof($qualify); $i++) {
+  echo $qualify[$i]."<br>";
 }
+
 
 ?>
