@@ -7,7 +7,7 @@
 
 <?php
 include_once("connect.php");
-$current = "2017";
+$current = "2018";
 
 
 $sql = "select player, `code` from players";
