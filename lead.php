@@ -2,6 +2,8 @@
 include_once("connect.php");
 $current = "2018";
 
+$qualify = array();
+
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
 if ($result) {
@@ -26,8 +28,6 @@ if ($result) {
 
         }
       }
-
-      $qualify = array();
 
       if ($pa/$games >= 2.3) {
         $qualify[] = $code;
