@@ -48,7 +48,17 @@ for ($i = 0; $i < sizeof($qual); $i++) {
   $qualSort[] = array($qual[$i][0], $qual[$i][1], $avg);
 }
 
-rsort($qualSort);
+function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+    $sort_col = array();
+    foreach ($arr as $key=> $row) {
+        $sort_col[$key] = $row[$col];
+    }
+
+    array_multisort($sort_col, $dir, $arr);
+}
+
+
+array_sort_by_column($qualSort, 2, 'order');
 
 for ($i = 0; $i < sizeof($qualSort); $i++) {
   echo $qualSort[$i][0]." - ".$qualSort[$i][1]." - ".$qualSort[$i][2]."<br>";
