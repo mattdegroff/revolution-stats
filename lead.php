@@ -1,8 +1,14 @@
+<table>
+  <thead>
+    <tr><th>player</th></tr>
+  </thead>
+  <tbody>
+
+
 <?php
 include_once("connect.php");
-$current = "2018";
+$current = "2017";
 
-$qualify = array();
 
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
@@ -30,14 +36,10 @@ if ($result) {
       }
 
       if ($pa/$games >= 2.3) {
-        array_push($qualify, $code);
+        echo "<tr><td>".$code."</td></tr>";
       }
   }
 }
-
-if ($i = 0; $i < count($qualify); $i++) {
-  echo $qualify[$i]."<br>";
-}
-
-
 ?>
+</tbody>
+</table>
