@@ -3,6 +3,7 @@ include_once("connect.php");
 $current = "2018";
 
 $qual = array();
+$qualSort = array();
 
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
@@ -45,12 +46,14 @@ if ($result) {
   }
 }
 
+$qualSort[] = $avg;
+
 }
 
-arsort($qual);
+arsort($qualSort);
 
-for ($i = 0; $i < sizeof($qual); $i++) {
-  echo $qual[$i];
+for ($i = 0; $i < sizeof($qualSort); $i++) {
+  echo $qualSort[$i];
 }
 
 ?>
