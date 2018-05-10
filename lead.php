@@ -1,14 +1,8 @@
-<table>
-  <thead>
-    <tr><th>player</th></tr>
-  </thead>
-  <tbody>
-
-
 <?php
 include_once("connect.php");
 $current = "2018";
 
+$qual = array();
 
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
@@ -36,10 +30,8 @@ if ($result) {
       }
 
       if ($pa/$games >= 2.3) {
-        echo "<tr><td>".$code."</td></tr>";
+        $qual[] = $code;
       }
   }
 }
 ?>
-</tbody>
-</table>
