@@ -45,6 +45,12 @@ if ($result) {
   }
 }
 
-echo $qual[$i]." - ".$avg;
 }
+
+arsort($qual);
+
+for ($i = 0; $i < sizeof($qual); $i++) {
+  echo $qual[$i];
+}
+
 ?>
