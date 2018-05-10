@@ -35,7 +35,7 @@ if ($result) {
   }
 }
 
-if ($i = 0; $i < sizeof($qualify); $i++) {
+if ($i = 0; $i < count($qualify); $i++) {
   echo $qualify[$i]."<br>";
 }
 

@@ -320,7 +320,7 @@ include_once("connect.php");
   </div>
 </nav>
 
-<a class="nav-link" href="#" onclick="lead()">Home</a>
+<a class="nav-link" href="#" onclick="lead()">        d</a>
 <div id="content" style="margin-top: 25px;"></div>
 
 
