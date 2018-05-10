@@ -37,7 +37,7 @@ if ($result) {
 
 for ($i = 0; $i < sizeof($qual); $i++) {
 
-$sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]" where year = ".$current;
+$sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]." where year = ".$current;
 $result = $conn->query($sql);
 if ($result) {
   while($row = $result->fetch_assoc()){
