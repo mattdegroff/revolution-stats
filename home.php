@@ -98,15 +98,6 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Batting Avg.</h5>
-            <?php
-              /*$sql = "select count(pitch) from ".$code." where pitch = 1 and league = '".$row['league']."'";
-               $result = $conn->query($sql);
-               if ($result->num_rows > 0) {
-                 while($row = $result->fetch_assoc()){
-                   $games = $row['count(pitch)'];
-                 }
-               }*/
-             ?>
           </div>
         </div>
       </div>
