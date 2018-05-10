@@ -50,8 +50,8 @@ for ($i = 0; $i < sizeof($qual); $i++) {
 
 rsort($qualSort);
 
-for ($i = 0; $i < sizeof($qualSort); $i++) {
-  echo $qualSort[$i]."<br>";
+for ($i = 0; $i < sizeof($qual); $i++) {
+  echo $qual[$i][0]." - ".$qual$i][1]."<br>";
 }
 
 ?>
