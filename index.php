@@ -89,24 +89,6 @@ include_once("connect.php");
           xmlhttp.send();
         }
 
-        function lead() {
-          if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-          } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-          }
-
-          xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-              document.getElementById("content").innerHTML = xmlhttp.responseText;
-            }
-          }
-          xmlhttp.open("GET","lead.php",true);
-          xmlhttp.send();
-        }
-
         home();
     </script>
     <title>LI Revolution</title>
@@ -320,7 +302,6 @@ include_once("connect.php");
   </div>
 </nav>
 
-<a class="nav-link" href="#" onclick="lead()">        d</a>
 <div id="content" style="margin-top: 25px;"></div>
 
 
