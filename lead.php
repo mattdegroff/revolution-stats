@@ -36,6 +36,15 @@ if ($result) {
 }
 
 for ($i = 0; $i < sizeof($qual); $i++) {
-  echo $qual[$i]."<br>";
+
+$sql = "select (sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab) from ".$qual[$i]" where year = ".$current;
+$result = $conn->query($sql);
+if ($result) {
+  while($row = $result->fetch_assoc()){
+    $avg = $row['(sum(singles)+sum(doubles)+sum(triples)+sum(hr))/sum(ab)'];
+  }
+}
+
+echo $qual[$i]." - ".$avg;
 }
 ?>
