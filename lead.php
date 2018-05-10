@@ -45,7 +45,7 @@ for ($i = 0; $i < sizeof($qual); $i++) {
     }
   }
 
-  $qualSort[] = array($qual[$i][0], $qual[$i][1], $avg;
+  $qualSort[] = array($qual[$i][0], $qual[$i][1], $avg);
 }
 
 rsort($qualSort);
