@@ -102,7 +102,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Batting Avg.</h5>
-            <?php avg(); ?>
+            <?php //avg(); ?>
           </div>
         </div>
       </div>
