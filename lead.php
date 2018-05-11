@@ -61,7 +61,7 @@ function qualify() {
 }
 
 //function avg() {
-  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc";
+  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc, ab";
   $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
