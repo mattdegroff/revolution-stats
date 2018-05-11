@@ -1,6 +1,6 @@
 <?php
   include_once('connect.php');
-  //include_once('lead.php');
+  include_once('lead.php');
   $sql = "select display from lineupDisp";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -102,7 +102,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Batting Avg.</h5>
-            <?php //avg(); ?>
+            <?php avg(); ?>
           </div>
         </div>
       </div>
