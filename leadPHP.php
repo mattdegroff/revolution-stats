@@ -66,7 +66,7 @@ function qual() {
 
 function avg() {
   global $conn;
-  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc";
+  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc where qualify = 1";
   $result = $conn->query($sql);
     if ($result) {
       while($row = $result->fetch_assoc()){
@@ -78,7 +78,7 @@ function avg() {
 
   function obp() {
     global $conn;
-    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual order by obp desc";
+    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual order by obp desc where qualify = 1";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -90,7 +90,7 @@ function avg() {
 
   function slg() {
     global $conn;
-    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by slg desc";
+    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by slg desc where qualify = 1";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
