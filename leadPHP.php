@@ -64,8 +64,6 @@ function qual() {
     }
 }
 
-qual();
-
 function avg() {
   global $conn;
   $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc";
