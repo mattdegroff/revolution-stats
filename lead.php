@@ -13,7 +13,7 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
-$sql = "delete table qual";
+$sql = "delete from qual";
 $result = $conn->query($sql);
 
 $sql = "select player, `code` from players";
