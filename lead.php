@@ -13,6 +13,7 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
+function qualify() {
 $sql = "delete from qual";
 $result = $conn->query($sql);
 
@@ -57,16 +58,16 @@ if ($result) {
       }
     }
 }
+}
 
 function ba() {
   $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc";
   $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
-      echo $row["name"]." - ".$row["ba"];
+      echo $row['name']." - ".$row['ba'];
     }
   }
-
 }
 
 ba();
