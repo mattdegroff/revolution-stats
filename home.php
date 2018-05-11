@@ -1,6 +1,5 @@
 <?php
   include_once('connect.php');
-  include('lead.php');
   $sql = "select display from lineupDisp";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -95,5 +94,5 @@
       </div>
     </div>
   </div>
-    
+
   </div>
