@@ -2,6 +2,7 @@
   include('leadPHP.php');
  ?>
 
+<div class="container">
 <h2>Team Leaders</h2>
   <div class="row">
     <div class="col-md-3">
@@ -102,6 +103,7 @@
     <h5 class="card-title">Total Bases</h5>
     <?php  ?>
   </div>
+</div>
 </div>
 </div>
 </div>
