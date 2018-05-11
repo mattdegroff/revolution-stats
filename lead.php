@@ -73,14 +73,14 @@ function avg() {
     }
   }
 
-  function avg() {
+  function obp() {
     global $conn;
     $sql = "select name, (singles+doubles+triples+hr+walks)/(ab+walks+sac) as obp from qual order by obp desc";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
           $obp = ltrim(strval(number_format($row['obp'], 3, '.', '')), "0");
-          echo "<div class='row'><div class='col-9'>".$row['name']."</div><div class='col-3'>".$obp."</div></div>";        
+          echo "<div class='row'><div class='col-9'>".$row['name']."</div><div class='col-3'>".$obp."</div></div>";
         }
       }
     }
