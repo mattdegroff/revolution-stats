@@ -75,7 +75,7 @@ function avg() {
 
   function obp() {
     global $conn;
-    $sql = "select name, (singles+doubles+triples+hr+walks)/(ab+walks+sac) as obp from qual order by obp desc";
+    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual order by obp desc";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
