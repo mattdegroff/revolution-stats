@@ -32,68 +32,73 @@
     </div>
   </div>
 </div>
-</div>
 <div class="row">
-<div class="col-md-4">
+  <div class="col-md-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Singles</h5>
+      <?php  ?>
     </div>
   </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Doubles</h5>
+      <?php ?>
     </div>
   </div>
 </div>
+<div class="col-md-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Triples</h5>
+      <?php  ?>
+    </div>
+  </div>
 </div>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Triples</h5>
-      </div>
-    </div>
+<div class="col-md-3">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Home Runs</h5>
+    <?php  ?>
   </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Home Runs</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">RBI</h5>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
 </div>
 <div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Sacrifices</h5>
-      </div>
+  <div class="col-md-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Runs Batted In</h5>
+      <?php ?>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Walks</h5>
-      </div>
+</div>
+<div class="col-md-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Walks</h5>
+      <?php  ?>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Total Bases</h5>
-      </div>
+</div>
+<div class="col-md-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Sacrifices</h5>
+      <?php  ?>
     </div>
   </div>
+</div>
+<div class="col-md-3">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Total Bases</h5>
+    <?php  ?>
+  </div>
+</div>
+</div>
 
 <?php
 include_once("connect.php");

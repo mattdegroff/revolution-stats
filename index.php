@@ -109,7 +109,7 @@ include_once("connect.php");
 
         home();
     </script>
-    <title>LI Revolution</title>
+    <title>Revolution Softball</title>
   </head>
   <body>
     <style>
