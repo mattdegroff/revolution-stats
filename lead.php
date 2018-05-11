@@ -67,7 +67,7 @@ function avg() {
   $result = $conn->query($sql);
     if ($result) {
       while($row = $result->fetch_assoc()){
-        echo $row['name']." - ".$row['(singles+doubles+triples+hr)/ab']."</br>";
+        echo $row['name']." - ".$row['ba']."</br>";
       }
     }
   }
