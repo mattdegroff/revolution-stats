@@ -95,13 +95,14 @@
       </div>
     </div>
   </div>
-  <!--<div class="row text-center">
+  <div class="row text-center">
     <h2>Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Batting Avg.</h5>
+            <?php avg(); ?>
           </div>
         </div>
       </div>
@@ -121,7 +122,7 @@
       </div>
     </div>
   </div>
-    <div class="row">
+  <!--<div class="row">
       <div class="col-md-4">
       <div class="card">
         <div class="card-body">

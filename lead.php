@@ -13,8 +13,6 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
-avg();
-
 function qualify() {
   $sql = "delete from qual";
   $result = $conn->query($sql);
