@@ -2,8 +2,16 @@
 include_once("connect.php");
 $current = "2018";
 
-$qual = array();
-$qualSort = array();
+$ab = 0;
+$r = 0;
+$sin = 0;
+$doub = 0;
+$trip = 0;
+$hr = 0;
+$rbi = 0;
+$sac = 0;
+$bb = 0;
+$k = 0;
 
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
