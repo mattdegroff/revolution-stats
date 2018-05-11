@@ -50,7 +50,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Singles</h5>
-      <?php  ?>
+      <?php singles(); ?>
     </div>
   </div>
 </div>
@@ -58,7 +58,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Doubles</h5>
-      <?php ?>
+      <?php doubles(); ?>
     </div>
   </div>
 </div>
@@ -66,7 +66,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Triples</h5>
-      <?php  ?>
+      <?php triples(); ?>
     </div>
   </div>
 </div>
@@ -74,7 +74,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Home Runs</h5>
-    <?php  ?>
+    <?php hr(); ?>
   </div>
 </div>
 </div>
@@ -84,7 +84,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Runs Batted In</h5>
-      <?php ?>
+      <?php rbi(); ?>
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Walks</h5>
-      <?php  ?>
+      <?php walks(); ?>
     </div>
   </div>
 </div>
@@ -100,7 +100,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Sacrifices</h5>
-      <?php  ?>
+      <?php sac(); ?>
     </div>
   </div>
 </div>
@@ -108,7 +108,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Total Bases</h5>
-    <?php  ?>
+    <?php total(); ?>
   </div>
 </div>
 </div>
