@@ -65,7 +65,7 @@ function qualify() {
   $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
-      echo $row['name']." - ".$row['ba'];
+      echo $row['name']." - ".$row['ba']."<br>";
     }
   }
 //}
