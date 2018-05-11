@@ -85,27 +85,71 @@ function avg() {
       }
     }
 
-    function slg() {
+  function slg() {
+    global $conn;
+    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by slg desc";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          $slg = ltrim(strval(number_format($row['slg'], 3, '.', '')), "0");
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$slg."</div></div>";
+        }
+      }
+    }
+
+  function hits() {
+    global $conn;
+    $sql = "select name, singles+doubles+triples+hr as h from qual order by h desc";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['h']."</div></div>";
+        }
+      }
+    }
+
+  function singles() {
+    global $conn;
+    $sql = "select name, singles from qual order by singles desc";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['singles']."</div></div>";
+        }
+      }
+    }
+
+    function doubles() {
       global $conn;
-      $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by slg desc";
+      $sql = "select name, doubles from qual order by doubles desc";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
-            $slg = ltrim(strval(number_format($row['slg'], 3, '.', '')), "0");
-            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$slg."</div></div>";
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['doubles']."</div></div>";
           }
         }
       }
 
-      function hits() {
-        global $conn;
-        $sql = "select name, singles+doubles+triples+hr as h from qual order by h desc";
-        $result = $conn->query($sql);
-          if ($result) {
-            while($row = $result->fetch_assoc()){
-              echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['h']."</div></div>";
-            }
+    function hits() {
+      global $conn;
+      $sql = "select name, triples from qual order by triples desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['triples']."</div></div>";
           }
         }
+      }
+
+    function hr() {
+      global $conn;
+      $sql = "select name, hr from qual order by hr desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['hr']."</div></div>";
+          }
+        }
+      }
 
 ?>
