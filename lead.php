@@ -1,7 +1,5 @@
 <?php
   include('leadPHP.php');
-
-  qual();
  ?>
 
  <style>
