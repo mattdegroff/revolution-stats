@@ -1,5 +1,7 @@
 <?php
   include('leadPHP.php');
+
+  qual();
  ?>
 
  <style>
@@ -84,7 +86,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Runs Batted In</h5>
-      <?php //rbi(); ?>
+      <?php rbi(); ?>
     </div>
   </div>
 </div>
@@ -92,7 +94,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Walks</h5>
-      <?php //walks(); ?>
+      <?php walks(); ?>
     </div>
   </div>
 </div>
@@ -100,7 +102,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Sacrifices</h5>
-      <?php //sac(); ?>
+      <?php sac(); ?>
     </div>
   </div>
 </div>
@@ -108,7 +110,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Total Bases</h5>
-    <?php //total(); ?>
+    <?php total(); ?>
   </div>
 </div>
 </div>

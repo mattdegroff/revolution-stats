@@ -155,4 +155,48 @@ function avg() {
         }
       }
 
+    function rbi() {
+      global $conn;
+      $sql = "select name, rbi from qual order by rbi desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['rbi']."</div></div>";
+          }
+        }
+      }
+
+    function walks() {
+      global $conn;
+      $sql = "select name, walk from qual order by walk desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['walk']."</div></div>";
+          }
+        }
+      }
+
+    function sac() {
+      global $conn;
+      $sql = "select name, sac from qual order by sac desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['sac']."</div></div>";
+          }
+        }
+      }
+
+    function total() {
+      global $conn;
+      $sql = "select name, singles+(doubles*2)+(triples*3)+(hr*4) as tb from qual order by tb desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['tb']."</div></div>";
+          }
+        }
+      }
+
 ?>
