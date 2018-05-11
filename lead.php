@@ -97,4 +97,15 @@ function avg() {
         }
       }
 
+      function hits() {
+        global $conn;
+        $sql = "select name, singles+doubles+triples+hr as h from qual order by h desc";
+        $result = $conn->query($sql);
+          if ($result) {
+            while($row = $result->fetch_assoc()){
+              echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$row['h']."</div></div>";
+            }
+          }
+        }
+
 ?>
