@@ -13,7 +13,7 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
-function qualify() {
+function qual() {
   $sql = "delete from qual";
   $result = $conn->query($sql);
 
@@ -70,5 +70,5 @@ function avg() {
   }
 }
 
-
+avg();
 ?>
