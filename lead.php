@@ -92,7 +92,7 @@ function avg() {
         if ($result) {
           while($row = $result->fetch_assoc()){
             $slg = ltrim(strval(number_format($row['slg'], 3, '.', '')), "0");
-            echo "<div class='row'><div class='col-9'>".$row['name']."</div><div class='col-3'>".$slg."</div></div>";
+            echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$slg."</div></div>";
           }
         }
       }
