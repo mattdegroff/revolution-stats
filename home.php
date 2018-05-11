@@ -97,7 +97,7 @@
   </div>
     <h2>Team Leaders</h2>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Batting Avg.</h5>
@@ -105,29 +105,30 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">On-Base %</h5>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Runs</h5>
           </div>
         </div>
       </div>
-    </div>
-  <!--<div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Hits</h5>
         </div>
       </div>
     </div>
+    </div>
+  <!--<div class="row">
+
     <div class="col-md-4">
       <div class="card">
         <div class="card-body">
