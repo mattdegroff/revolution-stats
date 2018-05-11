@@ -1,5 +1,7 @@
 <?php
   include('leadPHP.php');
+
+  qual();
  ?>
 
  <style>
@@ -31,7 +33,7 @@
   <div class="col-lg-3">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Runs</h5>
+        <h5 class="card-title">Slugging %</h5>
         <?php slg(); ?>
       </div>
     </div>
