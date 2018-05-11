@@ -1,5 +1,6 @@
 <?php
   include_once('connect.php');
+  include_once('lead.php');
   $sql = "select display from lineupDisp";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {

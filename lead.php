@@ -13,6 +13,8 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
+avg();
+
 function qualify() {
   $sql = "delete from qual";
   $result = $conn->query($sql);
@@ -60,7 +62,7 @@ function qualify() {
     }
 }
 
-//function avg() {
+function avg() {
   $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc, ab";
   $result = $conn->query($sql);
   if ($result) {
@@ -68,8 +70,7 @@ function qualify() {
       echo $row['name']." - ".$row['ba']."<br>";
     }
   }
-//}
+}
 
-//avg();
 
 ?>
