@@ -130,7 +130,7 @@ function avg() {
         }
       }
 
-    function hits() {
+    function triples() {
       global $conn;
       $sql = "select name, triples from qual order by triples desc";
       $result = $conn->query($sql);
