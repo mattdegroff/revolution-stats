@@ -58,7 +58,7 @@ function qualify() {
           }
         }
     }
-};
+}
 
 function avg() {
   $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc";
@@ -68,7 +68,7 @@ function avg() {
       echo $row['name']." - ".$row['ba'];
     }
   }
-};
+}
 
 avg();
 
