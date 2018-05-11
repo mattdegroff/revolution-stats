@@ -54,9 +54,19 @@ if ($result) {
       if ($pa/$games >= 2.3) {
             $sql = "insert into qual (name, code, ab, runs, singles, doubles, triples, hr, rbi, sac, walk, k) values ('".$name."', '".$code."', ".$ab.", ".$r.", ".$sin.", ".$doub.", ".$trip.", ".$hr.", ".$rbi.", ".$sac.", ".$bb.", ".$k.")";
             $result2 = $conn->query($sql);
-
       }
     }
+}
+
+function ba() {
+  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba limit 5";
+  $result = $conn->query($sql);
+  if ($result) {
+    while($row = $result->fetch_assoc()){
+      echo $row["name"]." - ".$row["ba"];
+    }
+  }
+
 }
 
 ?>
