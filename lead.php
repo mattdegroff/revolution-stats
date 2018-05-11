@@ -67,7 +67,7 @@ function avg() {
   $result = $conn->query($sql);
     if ($result) {
       while($row = $result->fetch_assoc()){
-        echo $row['name']." - ".$row['ba']."</br>";
+        echo $row['name']." - ".ltrim(strval(number_format($row['ba'], 3, '.', '')), "0")."</br>";
       }
     }
   }
