@@ -95,7 +95,6 @@
       </div>
     </div>
   </div>
-  <div class="row text-center">
     <h2>Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">
@@ -121,7 +120,6 @@
         </div>
       </div>
     </div>
-  </div>
   <!--<div class="row">
       <div class="col-md-4">
       <div class="card">
