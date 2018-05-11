@@ -13,6 +13,9 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
+$sql = "delete table qual";
+$result = $conn->query($sql);
+
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
 if ($result) {
@@ -50,7 +53,6 @@ if ($result) {
 
       if ($pa/$games >= 2.3) {
             $sql = "insert into qual (name, code, ab, runs, singles, doubles, triples, hr, rbi, sac, walk, k) values ('".$name."', '".$code."', ".$ab.", ".$r.", ".$sin.", ".$doub.", ".$trip.", ".$hr.", ".$rbi.", ".$sac.", ".$bb.", ".$k.")";
-            echo $sql."<br>";
             $result2 = $conn->query($sql);
 
       }
