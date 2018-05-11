@@ -117,6 +117,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Runs</h5>
+            <?php slg(); ?>
           </div>
         </div>
       </div>

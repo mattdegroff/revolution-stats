@@ -85,4 +85,16 @@ function avg() {
       }
     }
 
+    function slg() {
+      global $conn;
+      $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by obp desc";
+      $result = $conn->query($sql);
+        if ($result) {
+          while($row = $result->fetch_assoc()){
+            $slg = ltrim(strval(number_format($row['slg'], 3, '.', '')), "0");
+            echo "<div class='row'><div class='col-9'>".$row['name']."</div><div class='col-3'>".$slg."</div></div>";
+          }
+        }
+      }
+
 ?>
