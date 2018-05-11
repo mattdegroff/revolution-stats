@@ -92,7 +92,10 @@
           <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
         </div>
       </div>
-      <!--<h2>2017 Team Leaders</h2>
+    </div>
+  </div>
+  <div class="row text-center">
+    <h2>Team Leaders</h2>
       <div class="row">
         <div class="col-md-4">
         <div class="card">
@@ -116,7 +119,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
+  </div>
+    <!--<div class="row">
       <div class="col-md-4">
       <div class="card">
         <div class="card-body">
@@ -184,7 +188,4 @@
           </div>
         </div>
       </div>-->
-    </div>
-    </div>
   </div>
-</div>
