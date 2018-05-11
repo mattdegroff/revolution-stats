@@ -45,7 +45,8 @@ if ($result) {
             echo $sql."<br>";
             $result2 = $conn->query($sql);
 
-  }
+      }
+    }
 }
 
 ?>
