@@ -67,6 +67,8 @@ function avg() {
     while($row = $result->fetch_assoc()){
       echo $row['name']." - ".$row['ba'];
     }
+  } else {
+    echo "whoops";
   }
 }
 
