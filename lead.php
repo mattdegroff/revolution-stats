@@ -26,16 +26,16 @@ if ($result) {
       if ($result1) {
         while($row1 = $result1->fetch_assoc()){
           $pa = $row1['sum(ab)'] + $row1['sum(walk)'] + $row1['sum(sac)'];
-          $ab = $row['sum(ab)'];
-          $r = $row['sum(runs)'];
-          $sin = $row['sum(singles)'];
-          $doub = $row['sum(doubles)'];
-          $trip = $row['sum(triples)'];
-          $hr = $row['sum(hr)'];
-          $rbi = $row['sum(rbi)'];
-          $sac = $row['sum(sac)'];
-          $bb = $row['sum(walk)'];
-          $k = $row['sum(k)'];
+          $ab = $row1['sum(ab)'];
+          $r = $row1['sum(runs)'];
+          $sin = $row1['sum(singles)'];
+          $doub = $row1['sum(doubles)'];
+          $trip = $row1['sum(triples)'];
+          $hr = $row1['sum(hr)'];
+          $rbi = $row1['sum(rbi)'];
+          $sac = $row1['sum(sac)'];
+          $bb = $row1['sum(walk)'];
+          $k = $row1['sum(k)'];
         }
       }
 
