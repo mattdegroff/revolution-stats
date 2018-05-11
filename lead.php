@@ -2,6 +2,13 @@
   include('leadPHP.php');
  ?>
 
+ <style>
+  .card {
+    margin-bottom: 10px;
+  }
+
+ </style>
+
 <div class="container text-center">
 <h2>Team Leaders</h2>
   <div class="row">
