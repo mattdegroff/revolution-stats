@@ -64,7 +64,7 @@ $k = 0;
 
 function avg() {
   global $conn;
-  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual order by ba desc where qualify = 1";
+  $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual where qualify = 1 order by ba desc, name";
   $result = $conn->query($sql);
     if ($result) {
       while($row = $result->fetch_assoc()){
@@ -76,7 +76,7 @@ function avg() {
 
   function obp() {
     global $conn;
-    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual order by obp desc where qualify = 1";
+    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual where qualify = 1 order by obp desc, name";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -88,7 +88,7 @@ function avg() {
 
   function slg() {
     global $conn;
-    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual order by slg desc where qualify = 1";
+    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual where qualify = 1 order by slg desc, name";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -100,7 +100,7 @@ function avg() {
 
   function hits() {
     global $conn;
-    $sql = "select name, singles+doubles+triples+hr as h from qual order by h desc";
+    $sql = "select name, singles+doubles+triples+hr as h from qual order by h desc, name";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -111,7 +111,7 @@ function avg() {
 
   function singles() {
     global $conn;
-    $sql = "select name, singles from qual order by singles desc";
+    $sql = "select name, singles from qual order by singles desc, name";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
@@ -122,7 +122,7 @@ function avg() {
 
     function doubles() {
       global $conn;
-      $sql = "select name, doubles from qual order by doubles desc";
+      $sql = "select name, doubles from qual order by doubles desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -133,7 +133,7 @@ function avg() {
 
     function triples() {
       global $conn;
-      $sql = "select name, triples from qual order by triples desc";
+      $sql = "select name, triples from qual order by triples desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -144,7 +144,7 @@ function avg() {
 
     function hr() {
       global $conn;
-      $sql = "select name, hr from qual order by hr desc";
+      $sql = "select name, hr from qual order by hr desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -155,7 +155,7 @@ function avg() {
 
     function rbi() {
       global $conn;
-      $sql = "select name, rbi from qual order by rbi desc";
+      $sql = "select name, rbi from qual order by rbi desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -166,7 +166,7 @@ function avg() {
 
     function walks() {
       global $conn;
-      $sql = "select name, walk from qual order by walk desc";
+      $sql = "select name, walk from qual order by walk desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -177,7 +177,7 @@ function avg() {
 
     function sac() {
       global $conn;
-      $sql = "select name, sac from qual order by sac desc";
+      $sql = "select name, sac from qual order by sac desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
@@ -188,7 +188,7 @@ function avg() {
 
     function total() {
       global $conn;
-      $sql = "select name, singles+(doubles*2)+(triples*3)+(hr*4) as tb from qual order by tb desc";
+      $sql = "select name, singles+(doubles*2)+(triples*3)+(hr*4) as tb from qual order by tb desc, name";
       $result = $conn->query($sql);
         if ($result) {
           while($row = $result->fetch_assoc()){
