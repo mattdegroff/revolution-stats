@@ -109,6 +109,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">On-Base %</h5>
+            <?php obp(); ?>
           </div>
         </div>
       </div>
