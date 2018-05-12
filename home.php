@@ -86,12 +86,12 @@
           </table>
         </div>
       </div>
-      <hr>
+    <!--  <hr>
       <div class="row">
         <div class="col-sm">
           <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 
