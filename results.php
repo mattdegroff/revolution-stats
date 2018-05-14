@@ -38,7 +38,7 @@ table {
 <div class="container">
     <h3 class="text-center">Cumulative</h3>
     <?php
-    $sql = "select count(*) from results where oppScore > score";
+    $sql = "select count(*) from results where oppScore > score and finished = 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -46,7 +46,7 @@ table {
       }
     }
 
-    $sql = "select count(inning) from results where inning > 0";
+    $sql = "select count(inning) from results where inning > 0 and finished = 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -54,7 +54,7 @@ table {
       }
     }
 
-    $sql = "select count(*) from results where oppScore < score";
+    $sql = "select count(*) from results where oppScore < score and finished = 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -62,7 +62,7 @@ table {
       }
     }
 
-    $sql = "select count(*) from results where oppScore < score";
+    $sql = "select count(*) from results where oppScore < score and finished = 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -70,7 +70,7 @@ table {
       }
     }
 
-    $sql = "select sum(oppScore), sum(score) from results";
+    $sql = "select sum(oppScore), sum(score) from results where finished = 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -133,7 +133,7 @@ table {
         }
         $i++;
 
-        $sql = "select count(*) from results where oppScore > score and league = '".$row1['league']."'";
+        $sql = "select count(*) from results where oppScore > score and league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -141,7 +141,7 @@ table {
           }
         }
 
-        $sql = "select count(inning) from results where inning > 0 and league = '".$row1['league']."'";
+        $sql = "select count(inning) from results where inning > 0 and league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -149,7 +149,7 @@ table {
           }
         }
 
-        $sql = "select count(*) from results where oppScore < score and league = '".$row1['league']."'";
+        $sql = "select count(*) from results where oppScore < score and league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -157,7 +157,7 @@ table {
           }
         }
 
-        $sql = "select count(*) from results where oppScore < score and league = '".$row1['league']."'";
+        $sql = "select count(*) from results where oppScore < score and league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -165,7 +165,7 @@ table {
           }
         }
 
-        $sql = "select sum(oppScore), sum(score) from results where league = '".$row1['league']."'";
+        $sql = "select sum(oppScore), sum(score) from results where league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -205,7 +205,7 @@ table {
       </thead>
       <tbody>';
 
-        $sql = "select date, opponent, oppScore, score, location, inning from results where league = '".$row1['league']."'";
+        $sql = "select date, opponent, oppScore, score, location, inning from results where league = '".$row1['league']."' and finished = 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
