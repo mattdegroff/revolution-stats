@@ -1,7 +1,14 @@
 <?php
 include_once("connect.php");
 $current = 2018;
-
+?>
+<p>Must be at least 2.25 to qualify</p>
+<table>
+  <thead>
+    <tr><th>Player</th><th>PA/TGP</th></tr>
+  </thead>
+  <tbody>
+<?php
 $sql = "select `code` from players";
 $result = $conn->query($sql);
   if ($result) {
@@ -27,6 +34,9 @@ $result = $conn->query($sql);
           }
         }
 
-        echo $code." - ".$pa/$games."<br>";
+        echo "<tr><td>".$code."</td><td>".$pa/$games."</td></tr>";
       }
     }
+  ?>
+  </tbody>
+</table>
