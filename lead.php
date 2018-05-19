@@ -12,7 +12,7 @@
 <div class="container text-center">
 <h2>Team Leaders</h2>
 <p>To qualify as a leader in AVG, OBP, or SLG, hitter must average 2.25 plate appearances per team games played.<br>
-<a href = "leadQual.php">Click Here to check your average</a></p>
+<a href = "leadQual.php">Click Here</a> to check your average.</p>
   <div class="row">
     <div class="col-lg-3">
     <div class="card">
