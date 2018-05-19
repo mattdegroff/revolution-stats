@@ -34,7 +34,7 @@ $result = $conn->query($sql);
           }
         }
 
-        echo "<tr><td>".$name."</td><td>".$pa/$games."</td></tr>";
+        echo "<tr><td>".$name."</td><td>".round($pa/$games, 2)."</td></tr>";
       }
     }
   ?>
