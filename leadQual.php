@@ -9,7 +9,7 @@ $current = 2018;
   </thead>
   <tbody>
 <?php
-$sql = "select `code` from players";
+$sql = "select player, `code` from players";
 $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
@@ -34,7 +34,7 @@ $result = $conn->query($sql);
           }
         }
 
-        echo "<tr><td>".$code."</td><td>".$pa/$games."</td></tr>";
+        echo "<tr><td>".$name."</td><td>".$pa/$games."</td></tr>";
       }
     }
   ?>
