@@ -9,7 +9,7 @@ $current = 2018;
   </thead>
   <tbody>
 <?php
-$sql = "select player, `code` from players";
+$sql = "select player, `code` from players where not status = 0";
 $result = $conn->query($sql);
   if ($result) {
     while($row = $result->fetch_assoc()){
