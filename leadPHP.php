@@ -52,7 +52,7 @@ $k = 0;
             }
           }
 
-          if ($pa/$games >= 2.3) {
+          if ($pa/$games >= 2.25) {
                 $sql = "insert into qual (name, code, ab, runs, singles, doubles, triples, hr, rbi, sac, walk, k, qualify) values ('".$name."', '".$code."', ".$ab.", ".$r.", ".$sin.", ".$doub.", ".$trip.", ".$hr.", ".$rbi.", ".$sac.", ".$bb.", ".$k.", 1)";
                 $result2 = $conn->query($sql);
           } else if ($games > 0){
@@ -72,6 +72,17 @@ function avg() {
         echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$avg."</div></div>";
       }
     }
+
+    echo "<hr>";
+
+    $sql = "select name, (singles+doubles+triples+hr)/ab as ba from qual where qualify = 0 order by ba desc, name";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          $avg = ltrim(strval(number_format($row['ba'], 3, '.', '')), "0");
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$avg."</div></div>";
+        }
+      }
   }
 
   function obp() {
