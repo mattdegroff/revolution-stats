@@ -20,9 +20,9 @@
   <h1> Welcome to Revolution Softball!</h1>
   <hr>
   <div class="row text-center">
-    <div class="col-sm-4">
+    <!--<div class="col-sm-4">
       <?php
-      $sql = "select date from upcoming order by date limit 1";
+      /*$sql = "select date from upcoming order by date limit 1";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
@@ -51,12 +51,12 @@
             }
           } else {
             echo "<tr><td colspan='3'>To Be Announced</td></tr>";
-          }
+          }*/
           ?>
         </tbody>
       </table>
-    </div>
-    <div class="col-sm-8">
+    </div>-->
+    <div class="col">
       <h2>Upcoming Games</h2>
       <table class="table table-bordered text-center table-sm">
         <thead>
