@@ -95,11 +95,33 @@ function avg() {
           echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$obp."</div></div>";
         }
       }
+
+    echo "<hr>";
+
+    $sql = "select name, (singles+doubles+triples+hr+walk)/(ab+walk+sac) as obp from qual where qualify = 0 order by obp desc, name";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          $obp = ltrim(strval(number_format($row['obp'], 3, '.', '')), "0");
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$obp."</div></div>";
+        }
+      }
     }
 
   function slg() {
     global $conn;
     $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual where qualify = 1 order by slg desc, name";
+    $result = $conn->query($sql);
+      if ($result) {
+        while($row = $result->fetch_assoc()){
+          $slg = ltrim(strval(number_format($row['slg'], 3, '.', '')), "0");
+          echo "<div class='row'><div class='col-8'>".$row['name']."</div><div class='col-4'>".$slg."</div></div>";
+        }
+      }
+
+    echo "<hr>";
+
+    $sql = "select name, (singles+(doubles*2)+(triples*3)+(hr*4))/ab as slg from qual where qualify = 0 order by slg desc, name";
     $result = $conn->query($sql);
       if ($result) {
         while($row = $result->fetch_assoc()){
