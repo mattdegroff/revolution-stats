@@ -58,7 +58,7 @@
     </div>-->
     <div class="col">
       <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
       <h2>Upcoming Games</h2>
       <table class="table table-bordered text-center table-sm">
         <thead>
@@ -79,7 +79,7 @@
         </tbody>
       </table>
     </div>
-        <div class="col-6">
+        <div class="col-sm-6">
           <h2>Postponed Games</h2>
           <div class="row">
             <div class="col-sm-3">
