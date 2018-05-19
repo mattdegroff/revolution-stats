@@ -57,6 +57,8 @@
       </table>
     </div>-->
     <div class="col">
+      <div class="row">
+        <div class="col-6">
       <h2>Upcoming Games</h2>
       <table class="table table-bordered text-center table-sm">
         <thead>
@@ -76,9 +78,7 @@
           ?>
         </tbody>
       </table>
-      <div class="row">
-        <div class="col-6">
-        </div>
+    </div>
         <div class="col-6">
           <h2>Postponed Games</h2>
           <div class="row">
@@ -92,12 +92,6 @@
           </div>
         </div>
       </div>
-    <!--  <hr>
-      <div class="row">
-        <div class="col-sm">
-          <p>Postponed Games will be continued directly before next scheduled DH against opponent.</p>
-        </div>
-      </div>-->
     </div>
   </div>
 
