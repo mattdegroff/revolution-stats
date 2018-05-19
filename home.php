@@ -76,14 +76,20 @@
           ?>
         </tbody>
       </table>
-      <h2>Postponed Games</h2>
       <div class="row">
-        <div class="col-sm-3">
-          <table border=0>
-            <tr><th>Revolution</th><th>11</th></tr>
-            <tr><th>St. John's</th><th>13</th></tr>
-            <tr><td>Top 4</td><td>0 Outs</td></tr>
-          </table>
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+          <h2>Postponed Games</h2>
+          <div class="row">
+            <div class="col-sm-3">
+              <table border=0>
+                <tr><th>Revolution</th><th>11</th></tr>
+                <tr><th>St. John's</th><th>13</th></tr>
+                <tr><td>Top 4</td><td>0 Outs</td></tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     <!--  <hr>
