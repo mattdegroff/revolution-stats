@@ -34,7 +34,7 @@ $result = $conn->query($sql);
           }
         }
 
-        echo "<tr><td>".$name."</td><td>".round($pa/$games, 2)."</td></tr>";
+        echo "<tr><td>".$name."</td><td>".number_format($pa/$games, 2,".", ",")."</td></tr>";
       }
     }
   ?>
