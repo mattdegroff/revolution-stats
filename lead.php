@@ -1,6 +1,5 @@
 <?php
   include_once('leadPHP.php');
-  run();
  ?>
 
  <style>
