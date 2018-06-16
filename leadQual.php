@@ -10,7 +10,7 @@ $current = 2018;
   <tbody>
 <?php
 
-$sql = "select count(*) from results where year = ".$current." and inning > 0";
+$sql = "select count(*) from results where year = ".$current." and inning > 0 and finished = 1";
 $result1 = $conn->query($sql);
 if ($result1) {
   while($row1 = $result1->fetch_assoc()){
@@ -35,7 +35,7 @@ $result = $conn->query($sql);
           }
         }
 
-        echo "<tr><td>".$name."</td><td>".number_format($pa/$games, 2,".", ",")."</td><td>".$pa."</td><td>".$games."</td></tr>";
+        echo "<tr><td>".$name."</td><td>".$pa."</td><td>".$games."</td><td>".number_format($pa/$games, 2,".", ",")."</td></tr>";
       }
     }
   ?>
