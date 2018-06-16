@@ -5,10 +5,20 @@ $current = 2018;
 <p>Must be at least 2.25 to qualify</p>
 <table>
   <thead>
-    <tr><th>Player</th><th>PA/TGP</th></tr>
+    <tr><th>Player</th><th>PA</th><th>TGP</th><th>PA/TGP</th></tr>
   </thead>
   <tbody>
 <?php
+
+$sql = "select count(*) from results where year = ".$current." and inning > 0";
+$result1 = $conn->query($sql);
+if ($result1) {
+  while($row1 = $result1->fetch_assoc()){
+    $games = $row1['count(*)'];
+
+  }
+}
+
 $sql = "select player, `code` from players where not status = 0";
 $result = $conn->query($sql);
   if ($result) {
@@ -25,16 +35,7 @@ $result = $conn->query($sql);
           }
         }
 
-        $sql = "select count(*) from results where year = ".$current." and inning > 0";
-        $result1 = $conn->query($sql);
-        if ($result1) {
-          while($row1 = $result1->fetch_assoc()){
-            $games = $row1['count(*)'];
-
-          }
-        }
-
-        echo "<tr><td>".$name."</td><td>".number_format($pa/$games, 2,".", ",")."</td></tr>";
+        echo "<tr><td>".$name."</td><td>".number_format($pa/$games, 2,".", ",")."</td><td>".$pa."</td><td>".$games."</td></tr>";
       }
     }
   ?>
