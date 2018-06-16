@@ -20,7 +20,7 @@
 <style>
 table {
 /*font-size: .8rem;*/
-font-size: 1.25vw;
+font-size: 1.15vw;
 }
 
 @include media-breakpoint-up(sm) {
