@@ -133,6 +133,21 @@ include_once("connect.php");
     html {
       font-size: 1vw;
     }
+    @include media-breakpoint-up(sm) {
+    html {
+      font-size: 1.15rem;
+    }
+    }
+    @include media-breakpoint-up(mg) {
+    html {
+      font-size: 1.25rem;
+    }
+    }
+    @include media-breakpoint-up(lg) {
+    html {
+      font-size: 1.35rem;
+    }
+    }
 
     .dropdown-menu {
 	min-width: 200px;
