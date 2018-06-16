@@ -113,22 +113,22 @@ include_once("connect.php");
   </head>
   <body>
     <style>
-    /*html {
-    font-size: 12px;
+    html {
+    font-size: .75vw;
     }
     @media screen and (min-width: 320px) {
     html {
-      font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+      font-size: 3vw;
     }
     }
     @media screen and (min-width: 1000px) {
     html {
-      font-size: 16px;
+      font-size: 1vw;
     }
     }
     body {
-      font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-    }*/
+      font-size: 1vw;
+    }
 
     html {
       font-size: 1vw;
