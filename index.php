@@ -114,40 +114,22 @@ include_once("connect.php");
   <body>
     <style>
     html {
-    font-size: .75vw;
+    font-size: 12px;
     }
     @media screen and (min-width: 320px) {
     html {
-      font-size: 3vw;
+      font-size: calc(12px + 6 * ((100vw - 320px) / 680));
     }
     }
     @media screen and (min-width: 1000px) {
     html {
-      font-size: 1vw;
+      font-size: 16px;
     }
     }
     body {
-      font-size: 1vw;
+      font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
     }
 
-    html {
-      font-size: 1vw;
-    }
-    @include media-breakpoint-up(sm) {
-    html {
-      font-size: 5vw;
-    }
-    }
-    @include media-breakpoint-up(md) {
-    html {
-      font-size: 2vw;
-    }
-    }
-    @include media-breakpoint-up(lg) {
-    html {
-      font-size: 2.5vw;
-    }
-    }
 
     .dropdown-menu {
 	min-width: 200px;
