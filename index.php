@@ -131,7 +131,7 @@ include_once("connect.php");
     }*/
 
     html {
-    font-size: 5vw;
+    font-size: 4vw;
     }
 
     .dropdown-menu {
