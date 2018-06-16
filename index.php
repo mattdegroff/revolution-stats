@@ -135,10 +135,10 @@ include_once("connect.php");
     }
     @include media-breakpoint-up(sm) {
     html {
-      font-size: 1.5vw;
+      font-size: 5vw;
     }
     }
-    @include media-breakpoint-up(mg) {
+    @include media-breakpoint-up(md) {
     html {
       font-size: 2vw;
     }
