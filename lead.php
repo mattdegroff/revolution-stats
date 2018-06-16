@@ -1,5 +1,5 @@
 <?php
-  include('leadPHP.php');
+  include_once('leadPHP.php');
   run();
  ?>
 
