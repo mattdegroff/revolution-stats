@@ -107,7 +107,7 @@ include_once("connect.php");
           xmlhttp.send();
         }
 
-        home();
+        full();
     </script>
     <title>Revolution Softball</title>
   </head>
@@ -196,7 +196,7 @@ include_once("connect.php");
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Roster</a>
 
         <div class="dropdown-menu multi-column columns-2">
-          <a class="dropdown-item" href="#" onclick="full()">Full Roster</a>
+          <!--<a class="dropdown-item" href="#" onclick="full()">Full Roster</a>-->
           <div class="dropdown-header">Active Roster</div>
             <?php
               $sql = "select count(player) from players where status=1";
