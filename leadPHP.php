@@ -16,6 +16,15 @@ $k = 0;
 $sql = "delete from qual";
 $result = $conn->query($sql);
 
+$sql = "select count(*) from results where year = ".$current." and inning > 0 and finished = 1";
+$result1 = $conn->query($sql);
+if ($result1) {
+  while($row1 = $result1->fetch_assoc()){
+    $games = $row1['count(*)'];
+
+  }
+}
+
 $sql = "select player, `code` from players";
 $result = $conn->query($sql);
   if ($result) {
@@ -39,15 +48,6 @@ $result = $conn->query($sql);
             $sac = $row1['sum(sac)'];
             $bb = $row1['sum(walk)'];
             $k = $row1['sum(k)'];
-          }
-        }
-
-        $sql = "select count(*) from results where year = ".$current." and inning > 0";
-        $result1 = $conn->query($sql);
-        if ($result1) {
-          while($row1 = $result1->fetch_assoc()){
-            $games = $row1['count(*)'];
-
           }
         }
 
