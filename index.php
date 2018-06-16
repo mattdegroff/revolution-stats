@@ -113,7 +113,7 @@ include_once("connect.php");
   </head>
   <body>
     <style>
-    html {
+    /*html {
     font-size: 12px;
     }
     @media screen and (min-width: 320px) {
@@ -128,8 +128,11 @@ include_once("connect.php");
     }
     body {
       font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-    }
+    }*/
 
+    html {
+    font-size: 5vw;
+    }
 
     .dropdown-menu {
 	min-width: 200px;
