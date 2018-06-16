@@ -130,8 +130,8 @@ include_once("connect.php");
       font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
     }*/
 
-    table {
-    font-size: 2vmin;
+    html {
+      font-size: 1.25vw;
     }
 
     .dropdown-menu {
