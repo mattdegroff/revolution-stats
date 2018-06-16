@@ -13,7 +13,7 @@ $sac = 0;
 $bb = 0;
 $k = 0;
 
-
+function run() {
   $sql = "delete from qual";
   $result = $conn->query($sql);
 
@@ -61,6 +61,7 @@ $k = 0;
           }
         }
     }
+}
 
 function avg() {
   global $conn;
