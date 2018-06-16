@@ -19,7 +19,8 @@
 
 <style>
 table {
-font-size: .8rem;
+/*font-size: .8rem;*/
+font-size: 1.25vw;
 }
 
 @include media-breakpoint-up(sm) {
