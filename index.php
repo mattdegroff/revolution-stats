@@ -314,10 +314,10 @@ include_once("connect.php");
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/634654/schedule">Schedule</a>
+      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/800647/schedule">Schedule</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/634654/standings">Standings</a>
+      <a class="nav-link" target=_blank href="https://aba.leagueapps.com/leagues/800647/standings">Standings</a>
     </li>
     </ul>
   </div>
