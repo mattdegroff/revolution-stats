@@ -7,7 +7,6 @@
   $key = '';
   $keyR = '';
 
-
   $sql = "select id, player, `code` from players";
   $result = $conn->query($sql);
   if ($result) {

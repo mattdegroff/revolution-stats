@@ -141,7 +141,7 @@ table {
         $sql = "select distinct league from ".$code;
         $result1 = $conn->query($sql);
         if (!$result) {
-          echo "<tr><td colspan='16'>No Batting Records</td></tr>";
+          echo "<tr><td colspan='17'>No Batting Records</td></tr>";
         } else {
           while($row1 = $result1->fetch_assoc()){
 
