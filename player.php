@@ -1,7 +1,13 @@
 <?php
   include_once('connect.php');
 
-  $current = "2018-Summer";
+  $sql = "select active from activeSeason";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $current = $row['active'];
+    }
+  }
   $playing = true;
 
   if ($_GET["player"]) {

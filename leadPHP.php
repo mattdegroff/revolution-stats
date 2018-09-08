@@ -1,6 +1,12 @@
 <?php
 include_once("connect.php");
-$current = "2018";
+$sql = "select active from activeSeason";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    $current = $row['active'];
+  }
+}
 
 $ab = 0;
 $r = 0;
@@ -16,7 +22,7 @@ $k = 0;
 $sql = "delete from qual";
 $result = $conn->query($sql);
 
-$sql = "select count(*) from results where year = ".$current." and inning > 0 and finished = 1";
+$sql = "select count(*) from results where league = ".$current." and inning > 0 and finished = 1";
 $result1 = $conn->query($sql);
 if ($result1) {
   while($row1 = $result1->fetch_assoc()){
