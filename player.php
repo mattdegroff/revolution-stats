@@ -288,9 +288,8 @@ table {
         $r = 0;
         $k = 0;
         $era = 0;
-        $trigger = 0;
 
-        $sql = "select sum(ip) from".$code;
+        $sql = "select sum(ip) from ".$code;
         $result = $conn->query($sql);
         if ($result) {
         while($row = $result->fetch_assoc()){   
@@ -299,7 +298,7 @@ table {
 
         if ($trigger  == 0){
           echo "<tr><td colspan='6'>No Pitching Records</td></tr>";
-        } else if ($trigger > 0){
+        } else {
         $sql = "select distinct league from ".$code;
         $result = $conn->query($sql);
         if (!$result) {
