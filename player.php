@@ -601,15 +601,18 @@ table {
                           <td><b>'.$total_B.'</b></td>';
 
                           if ($era == -1) {
-                            echo "<td><b>&infin;</b></td>";
-                          } else {
-                            echo '<td><b>'.$era.'</b></td>';
-                          }
-
-                     echo '<td><b>'.$ip.'</b></td>
+                            echo "<td><b>&infin;</b></td>
+                            <td><b>'.$ip.'</b></td>
                           <td><b>'.$rP.'</b></td>
                           <td><b>'.$kP.'</b></td>
-                        </tr>';
+                        </tr>";
+                          } else if ($row['sum(ip)'] > 0) {
+                            echo '<td><b>'.$era.'</b></td>
+                            <td><b>'.$ip.'</b></td>
+                            <td><b>'.$rP.'</b></td>
+                            <td><b>'.$kP.'</b></td>
+                          </tr>';
+                          }
                 }
               }
 
