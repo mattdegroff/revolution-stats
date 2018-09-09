@@ -288,6 +288,7 @@ table {
         $r = 0;
         $k = 0;
         $era = 0;
+        $trigger = 0;
 
         $sql = "select sum(ip) from".$code;
         $result = $conn->query($sql);
