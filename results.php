@@ -113,10 +113,10 @@ table {
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
-        if ($row['league'] == $current) {
-          echo '<li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#results-'.$row['league'].'">'.str_replace('-', ' ', $row['league']).'</a></li>';
+        if ($row['leagues'] == $current) {
+          echo '<li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#results-'.$row['league'].'">'.str_replace('-', ' ', $row['leagues']).'</a></li>';
         } else {
-          echo '<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#results-'.$row['league'].'">'.str_replace('-', ' ', $row['league']).'</a></li>';
+          echo '<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#results-'.$row['league'].'">'.str_replace('-', ' ', $row['leagues']).'</a></li>';
         }
         $i++;
       }
