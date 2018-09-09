@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
   <tbody>
 <?php
 
-$sql = "select count(*) from results where league = ".$current." and inning > 0 and finished = 1";
+$sql = "select count(*) from results where league = '".$current."' and inning > 0 and finished = 1";
 $result1 = $conn->query($sql);
 if ($result1) {
   while($row1 = $result1->fetch_assoc()){
@@ -33,7 +33,7 @@ $result = $conn->query($sql);
         $name = $row['player'];
         $pa = 0;
 
-        $sql = "select sum(ab), sum(sac), sum(walk) from ".$code." where league = ".$current;
+        $sql = "select sum(ab), sum(sac), sum(walk) from ".$code." where league = '".$current."'";
         $result1 = $conn->query($sql);
         if ($result1) {
           while($row1 = $result1->fetch_assoc()){
