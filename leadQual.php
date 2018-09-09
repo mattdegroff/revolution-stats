@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
   <tbody>
 <?php
 
-$sql = "select count(*) from results where year = ".$current." and inning > 0 and finished = 1";
+$sql = "select count(*) from results where league = ".$current." and inning > 0 and finished = 1";
 $result1 = $conn->query($sql);
 if ($result1) {
   while($row1 = $result1->fetch_assoc()){
