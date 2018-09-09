@@ -301,9 +301,7 @@ table {
         } else {
         $sql = "select distinct league from ".$code;
         $result = $conn->query($sql);
-        if (!$result) {
-          echo "<tr><td colspan='6'>No Pitching Records</td></tr>";
-        } else {
+        if ($result) {
           while($row = $result->fetch_assoc()){
                $sql = "select count(pitch) from ".$code." where pitch = 1 and league = '".$row['league']."'";
                 $result1 = $conn->query($sql);
