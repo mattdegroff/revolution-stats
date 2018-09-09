@@ -39,7 +39,7 @@ $result = $conn->query($sql);
         $name = $row['player'];
         $pa = 0;
 
-        $sql = "select sum(ab), sum(runs), sum(singles), sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac), sum(walk), sum(k) from ".$code." where league = ".$current;
+        $sql = "select sum(ab), sum(runs), sum(singles), sum(doubles), sum(triples), sum(hr), sum(rbi), sum(sac), sum(walk), sum(k) from ".$code." where league = '".$current."'";
         $result1 = $conn->query($sql);
         if ($result1) {
           while($row1 = $result1->fetch_assoc()){
