@@ -298,7 +298,7 @@ table {
 
         if ($trigger  == 0){
           echo "<tr><td colspan='6'>No Pitching Records</td></tr>";
-        } else {
+        } else if ($trigger > 0){
         $sql = "select distinct league from ".$code;
         $result = $conn->query($sql);
         if (!$result) {
