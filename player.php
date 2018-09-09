@@ -612,6 +612,8 @@ table {
                             <td><b>'.$rP.'</b></td>
                             <td><b>'.$kP.'</b></td>
                           </tr>';
+                          } else {
+                            echo '<td colspan="4"></td></tr>';
                           }
                 }
               }
