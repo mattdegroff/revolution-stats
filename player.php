@@ -333,9 +333,7 @@ table {
                 if ($era == -1) {
                   echo "<tr><td>".str_replace('-', ' ', $row['league'])."</td><td>".$games."</td><td>&infin;</td><td>".number_format($ip, 1, '.', '')."</td><td>".$r."</td><td>".$k."</td></tr>";
                 } else {
-                  if ($ip == 0) {
-                    echo "<tr><td>".str_replace('-', ' ', $row['league'])."</td><td colspan='5'>No pitching records this year</td></tr>";
-                  } else {
+                  if ($ip > 0) {
                     echo "<tr><td>".str_replace('-', ' ', $row['league'])."</td><td>".$games."</td><td>".number_format($era, 2, '.', '')."</td><td>".number_format($ip, 1, '.', '')."</td><td>".$r."</td><td>".$k."</td></tr>";
                   }
                 }
@@ -361,9 +359,9 @@ table {
                 $era = ($row['sum(r)'] / $row['sum(ip)']) * 7;
               }
 
-              if ($era == -1 && $row['sum(ip)'] > 0) {
+              if ($era == -1) {
                 echo "<tr><th>Career</th><th>".$row['sum(pitch)']."</th><th>&infin;</th><th>".number_format($row['sum(ip)'], 1, '.', '')."</th><th>".$row['sum(r)']."</th><th>".$row['sum(kP)']."</th></tr>";
-              } else {
+              } else if ($row['sum(ip)'] > 0) {
                 echo "<tr><th>Career</th><th>".$row['sum(pitch)']."</th><th>".number_format($era, 2, '.', '')."</th><th>".number_format($row['sum(ip)'], 1, '.', '')."</th><th>".$row['sum(r)']."</th><th>".$row['sum(kP)']."</th></tr>";
               }
             }
