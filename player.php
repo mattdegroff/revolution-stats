@@ -361,7 +361,7 @@ table {
                 $era = ($row['sum(r)'] / $row['sum(ip)']) * 7;
               }
 
-              if ($era == -1 && $trigger > 0) {
+              if ($era == -1 && $row['sum(ip)'] > 0) {
                 echo "<tr><th>Career</th><th>".$row['sum(pitch)']."</th><th>&infin;</th><th>".number_format($row['sum(ip)'], 1, '.', '')."</th><th>".$row['sum(r)']."</th><th>".$row['sum(kP)']."</th></tr>";
               } else {
                 echo "<tr><th>Career</th><th>".$row['sum(pitch)']."</th><th>".number_format($era, 2, '.', '')."</th><th>".number_format($row['sum(ip)'], 1, '.', '')."</th><th>".$row['sum(r)']."</th><th>".$row['sum(kP)']."</th></tr>";
