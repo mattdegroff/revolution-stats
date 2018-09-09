@@ -296,12 +296,14 @@ table {
           $trigger = $row["sum(ip)"];
         }}
 
-        if ($trigger == 0){
+        if ($trigger  == 0){
           echo "<tr><td colspan='6'>No Pitching Records</td></tr>";
         } else {
         $sql = "select distinct league from ".$code;
         $result = $conn->query($sql);
-        if ($result) {
+        if (!$result) {
+          echo "<tr><td colspan='6'>No Pitching Records</td></tr>";
+        } else {
           while($row = $result->fetch_assoc()){
                $sql = "select count(pitch) from ".$code." where pitch = 1 and league = '".$row['league']."'";
                 $result1 = $conn->query($sql);
@@ -342,6 +344,7 @@ table {
           }
         }
       }
+
         ?>
       </tbody>
       <tfoot class="thead-light">
