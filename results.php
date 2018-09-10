@@ -109,7 +109,7 @@ table {
     <ul class="nav flex-column nav-pills nav-justified">
       <?php
       $i=0;
-      $sql = "select leagues from leagueList order by id desc ";
+      $sql = "select leagues from leagueList order by id desc";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
@@ -128,14 +128,14 @@ table {
   <div class="tab-content">
     <?php
     $i=0;
-    $sql = "select distinct league from results";
+    $sql = "select leagues from leagueList order by id desc";
     $result1 = $conn->query($sql);
     if ($result1->num_rows > 0) {
       while($row1 = $result1->fetch_assoc()){
         if ($row1['league'] == $current) {
-          echo '<div class="tab-pane active container" id="results-'.$row1['league'].'">';
+          echo '<div class="tab-pane active container" id="results-'.$row1['leagues'].'">';
         } else {
-          echo '<div class="tab-pane container" id="results-'.$row1['league'].'">';
+          echo '<div class="tab-pane container" id="results-'.$row1['leagues'].'">';
         }
         $i++;
 

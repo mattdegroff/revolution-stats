@@ -405,7 +405,7 @@ table {
     <?php
     $i=0;
     $found = false;
-    $sql = "select distinct league from ".$code." order by league desc";
+    $sql = "select distinct ".$code.".league, id from leagueList left join ".$code." on ".$code.".league = leagueList.leagues where ".$code.".league is not NULL order by id desc";
     $result1 = $conn->query($sql);
     if ($result) {
       while($row1 = $result1->fetch_assoc()) {
